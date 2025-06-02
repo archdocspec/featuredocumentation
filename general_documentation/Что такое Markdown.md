@@ -119,6 +119,8 @@ Markdown является мощным и простым способом фор
 
 Изображения добавляются аналогично ссылкам, но с восклицательным знаком перед ними.
 
+https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images - ОПИСАНИЕ
+
 ![Логотип Markdown](https://www.markdownguide.org/assets/images/markdown-mark-white.svg)
 
 Также, возможно добавление текста заголовка, выводимого по наведению курсора.
