@@ -115,6 +115,8 @@ Markdown является мощным и простым способом фор
 
 ![Логотип Markdown](https://github.com/archdocspec/featuredocumentation/blob/main/Various%20Diagrams/seq%20portf.png)
 
+Подробнее - тут https://github.com/NonameX11/FeatureTemplate/blob/main/AdditionalDocs/github_markdown_image_insertion_guide.md
+
 ---
 
 # Блоки кода
