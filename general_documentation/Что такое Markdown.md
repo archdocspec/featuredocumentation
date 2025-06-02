@@ -118,7 +118,7 @@ Markdown является мощным и простым способом фор
 
 Изображения добавляются аналогично ссылкам, но с восклицательным знаком перед ними.
 
-![Логотип Markdown](https://en.wikipedia.org/wiki/Markdown#/media/File:Markdown-mark.svg)
+![Логотип Markdown](https://www.markdownguide.org/assets/images/markdown-mark-white.svg)
 
 Также, возможно добавление текста заголовка, выводимого по наведению курсора.
 
