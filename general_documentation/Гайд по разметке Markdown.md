@@ -113,9 +113,11 @@ Markdown является мощным и простым способом фор
 
 Изображения добавляются аналогично ссылкам, но с восклицательным знаком перед ними.
 
-![Логотип Markdown](https://github.com/archdocspec/featuredocumentation/blob/main/Various%20Diagrams/seq%20portf.png)
+![Пример изображения с диаграммой](https://github.com/archdocspec/featuredocumentation/blob/main/Various%20Diagrams/seq%20portf.png)
 
-Подробнее - тут https://github.com/NonameX11/FeatureTemplate/blob/main/AdditionalDocs/github_markdown_image_insertion_guide.md
+Подробнее - тут:
+
+[Гайд по вставке изображений](https://github.com/NonameX11/FeatureTemplate/blob/main/AdditionalDocs/github_markdown_image_insertion_guide.md)
 
 ---
 
