@@ -113,15 +113,15 @@ Markdown является мощным и простым способом фор
 
 Изображения добавляются аналогично ссылкам, но с восклицательным знаком перед ними.
 
-https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images - ОПИСАНИЕ
 
-![Логотип Markdown](https://www.markdownguide.org/assets/images/markdown-mark-white.svg)
+![Логотип Markdown](https://github.com/archdocspec/featuredocumentation/blob/main/Various%20Diagrams/seq%20portf.png)
 
 Также, возможно добавление текста заголовка, выводимого по наведению курсора.
 
 ![alt-текст](https://en.wikipedia.org/wiki/Markdown#/media/File:Markdown-mark.svg "Текст заголовка логотипа 1")
 
----                
+---
+
 # Блоки кода
 
 ## Однострочный код
