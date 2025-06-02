@@ -122,7 +122,7 @@ Markdown является мощным и простым способом фор
 
 Также, возможно добавление текста заголовка, выводимого по наведению курсора.
 
-![alt-текст](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Текст заголовка логотипа 1")
+![alt-текст](https://en.wikipedia.org/wiki/Markdown#/media/File:Markdown-mark.svg "Текст заголовка логотипа 1")
 
 ---                
 # Блоки кода
