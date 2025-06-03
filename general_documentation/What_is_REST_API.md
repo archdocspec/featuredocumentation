@@ -200,6 +200,7 @@ PATCH <request-target>["?"<query>] HTTP/1.1
 
 <details>
   <summary><br>Пример Запроса</br></summary>
+
 ```
 PATCH /users/123 HTTP/1.1
 Host: example.com
