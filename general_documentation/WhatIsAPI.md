@@ -1,9 +1,5 @@
 # Что такое API
 
-Подробнее:
-
-https://newsletter.techworld-with-milan.com/p/what-are-the-main-api-architecture
-
 ## API
 
 API (Application Programming Interface) — это набор правил и протоколов, которые позволяют разным программам и сервисам взаимодействовать друг с другом.
@@ -95,6 +91,8 @@ REST расшифровывается как Representational State Transfer, ч
 
 Здесь:
 
-https://github.com/NonameX11/FeatureTemplate/blob/main/AdditionalDocs/WhatisRESTAPI.md
+[REST API](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/WhatisRESTAPI.md "Что такое REST API")
 
+## Дополнительные материалы
 
+https://newsletter.techworld-with-milan.com/p/what-are-the-main-api-architecture
