@@ -31,7 +31,7 @@ API Различаются по области применения, архит�
     SOAP используется для создания веб-сервисов, которые могут взаимодействовать друг с другом.
     
 >Графическое описание SOAP
-![REST](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTdescr.jpg "SOAP")
+![SOAP](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/soap.png "SOAP")
 
 
 > [!TIP]
@@ -40,21 +40,19 @@ API Различаются по области применения, архит�
 GraphQL подходит для сложных систем, где требуется гибкая настройка запросов.
 
 >Графическое описание GraphQL
-![REST](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/graphql.png "GraphQL")
+![GraphQL](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/graphql.png "GraphQL")
 
 > [!TIP]
 > **WebSocket** — технология, которая обеспечивает полнодуплексное общение между клиентом и сервером через постоянное соединение. 
 Она позволяет передавать данные в реальном времени, что делает её идеальной для игр, чатов и других приложений, требующих мгновенной реакции.
 
-> [!TIP]
 > **Графическое описание WebSocket**
-![REST](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/http_websocket.png "GraphQL")
+![WebSocket](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/http_websocket.png "GraphQL")
 
 > [!TIP]
 > **RPC** (**R**emote **P**rocedure **C**all) — механизм вызова процедур или функций на удалённом сервере, как если бы они были локальными. 
 RPC обеспечивает взаимодействие между компонентами системы и позволяет им обмениваться данными и выполнять задачи используя буфер протокола (ProtoBuff).
 
-> [!TIP]
 > **Графическое описание RPC**
 
 ![rpc](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RPC.jpg "RPC")
