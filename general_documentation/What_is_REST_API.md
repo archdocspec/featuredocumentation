@@ -137,11 +137,24 @@ POST <request-target>["?"<query>] HTTP/1.1
   <summary><br>Пример Запроса</br></summary>
 	
 ```
-POST /test HTTP/1.1
+POST /api/users HTTP/1.1
 Host: example.com
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 27
-field1=value1&field2=value2
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "email": "jane.smith@example.com"
+}
+                    
+POST /api/users HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "name": "Jane Smith",
+  "email": "jane.smith@example.com"
+}
+
 ```
 
 </details>
@@ -150,19 +163,26 @@ field1=value1&field2=value2
   <summary><br>Пример Ответа</br></summary
 			  
 ```
-POST /test HTTP/1.1
-Host: example.com
-Content-Type: multipart/form-data;boundary="delimiter12345"
+HTTP/1.1 201 Created
+Location: /api/users/2
+Content-Type: application/json
 
---delimiter12345
-Content-Disposition: form-data; name="field1"
+{
+  "id": 2,
+  "name": "Jane Smith",
+  "email": "jane.smith@example.com"
+}
+                    
+HTTP/1.1 201 Created
+Location: /api/users/2
+Content-Type: application/json
 
-value1
---delimiter12345
-Content-Disposition: form-data; name="field2"; filename="example.txt"
+{
+  "id": 2,
+  "name": "Jane Smith",
+  "email": "jane.smith@example.com"
+}
 
-value2
---delimiter12345--
 
 ```
 
@@ -185,12 +205,23 @@ PUT <request-target>["?"<query>] HTTP/1.1
   <summary><br>Пример Запроса</br></summary>	  
   
 ```
-PUT /new.html HTTP/1.1
+PUT /api/users/1 HTTP/1.1
 Host: example.com
-Content-type: text/html
-Content-length: 16
+Content-Type: application/json
 
-<p>New File</p>
+{
+  "name": "John Doe",
+  "email": "john.doe@newdomain.com"
+}
+                    
+PUT /api/users/1 HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@newdomain.com"
+}
 ```
 
 </details>
@@ -199,8 +230,24 @@ Content-length: 16
   <summary><br>Пример Ответа</br></summary>
 	  
 ```
-HTTP/1.1 201 Created
-Content-Location: /new.html
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john.doe@newdomain.com"
+}
+                    
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john.doe@newdomain.com"
+}
+
 ```
 </details>
 
@@ -220,14 +267,20 @@ PATCH <request-target>["?"<query>] HTTP/1.1
   <summary><br>Пример Запроса</br></summary>
 
 ```
-PATCH /users/123 HTTP/1.1
+PATCH /api/users/1 HTTP/1.1
 Host: example.com
 Content-Type: application/json
-Content-Length: 27
-Authorization: Bearer ABC123
 
 {
-  "status": "suspended"
+  "email": "john.doe@updateddomain.com"
+}
+                    
+PATCH /api/users/1 HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "email": "john.doe@updateddomain.com"
 }
 ```
 
@@ -239,9 +292,24 @@ Authorization: Bearer ABC123
   <summary><br>Пример Ответа</br></summary>
 
 ```
-HTTP/1.1 204 No Content
-Content-Location: /users/123
-ETag: "e0023aa4f"
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john.doe@updateddomain.com"
+}
+                    
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john.doe@updateddomain.com"
+}
+
 ```
 </details>
 
@@ -261,7 +329,7 @@ DELETE <request-target>["?"<query>] HTTP/1.1
   <summary><br>Пример Запроса</br></summary>
 
 ```
-DELETE /file.html HTTP/1.1
+DELETE /api/users/1 HTTP/1.1
 Host: example.com
 ```
 </details>
@@ -271,8 +339,8 @@ Host: example.com
   <summary><br>Пример Ответа</br></summary>
 	
 ```
-HTTP/1.1 204 No Content
-Date: Wed, 04 Sep 2024 10:16:04 GMT
+DELETE /api/users/1 HTTP/1.1
+Host: example.com
 ```
 </details>
 
