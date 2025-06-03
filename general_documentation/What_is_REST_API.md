@@ -2,7 +2,7 @@
 
 ![RESTVisual](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/rest-api-1.png)
 
--------
+____________________________________
 
 ## Введение
 
@@ -11,7 +11,7 @@ REST API (**R**epresentational **S**tate **T**ransfer **A**pplication **P**rogra
 
 REST API стал популярным благодаря своей простоте, масштабируемости и возможности работы с различными форматами данных, такими как JSON и XML.
 
--------
+____________________________________
 
 ## Основные принципы REST
 
@@ -25,7 +25,7 @@ REST API стал популярным благодаря своей прост�
 >Визуализация связи принципов REST
 >![RESTArc](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTArch.jpg)
 
--------
+____________________________________
 
 ## Структура вызова REST
 
@@ -44,7 +44,7 @@ REST API стал популярным благодаря своей прост�
 >Пояснение: Вызов REST - структура вызова
 >![RESTCall](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTSTRUCTUREDETAILED.png)
 
--------
+____________________________________
 
 ## Методы REST API
 
@@ -59,7 +59,7 @@ REST API стал популярным благодаря своей прост�
 
 >![RESTMethods.jpg](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTMethods.png)
 
--------
+____________________________________
 
 ## Описание основных методов REST API
 
@@ -103,7 +103,8 @@ Content-Length: 1234
 <!-- HTML content follows -->
 ```
 </details>
-___
+
+____________________________________
 
 ###  POST
 
@@ -185,7 +186,7 @@ Content-Location: /new.html
 ```
 </details>
 
-___
+____________________________________
 
 ### PATCH
 
@@ -221,7 +222,8 @@ Content-Location: /users/123
 ETag: "e0023aa4f"
 ```
 </details>
-___
+
+____________________________________
 
 #### DELETE
 
@@ -251,7 +253,7 @@ Date: Wed, 04 Sep 2024 10:16:04 GMT
 
 </details>
 
--------
+____________________________________
 
 ## Справочник по HTTP Кодам ответов
 
