@@ -30,10 +30,10 @@ REST API стал популярным благодаря своей прост�
 * Body: Параметры запроса (обычно в формате JSON или XML)
 * Структура вызова REST
 
->Изображение 1 Вызов REST - прохождение вызова
+>Пояснение: Вызов REST - прохождение вызова
 >![RESTCall](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTdescr.jpg)
 
->Изображение 1 Вызов REST - структура вызова
+>Пояснение: Вызов REST - структура вызова
 >![RESTCall](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTStructure.jpg)
 
 ## Основные методы REST API
