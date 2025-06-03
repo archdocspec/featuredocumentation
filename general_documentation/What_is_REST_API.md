@@ -86,10 +86,9 @@ GET <request-target>["?"<query>] HTTP/1.1
   <summary><br>Пример Запроса</br></summary>
 
 ```
-GET /contact HTTP/1.1
+GET /api/users/1 HTTP/1.1
 Host: example.com
-User-Agent: curl/8.6.0
-Accept: */*
+Accept: application/json
 
 ```
 </details>
@@ -99,12 +98,23 @@ Accept: */*
 
 ```
 HTTP/1.1 200 OK
-Content-Type: text/html; charset=UTF-8
-Date: Fri, 21 Jun 2024 14:18:33 GMT
-Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
-Content-Length: 1234
-<!doctype html>
-<!-- HTML content follows -->
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john.doe@example.com"
+}
+                    
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john.doe@example.com"
+}
+
 ```
 
 </details>
