@@ -35,13 +35,17 @@ GraphQL подходит для сложных систем, где требуе
 **RPC** (**R**emote **P**rocedure **C**all) — механизм вызова процедур или функций на удалённом сервере, как если бы они были локальными. 
 RPC обеспечивает взаимодействие между компонентами системы и позволяет им обмениваться данными и выполнять задачи используя буфер протокола (ProtoBuff).
 
->Графическое описание RPC
+<description>
+<summary>**Графическое описание RPC**</summary>
 
 ![rpc](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RPC.jpg "RPC")
+</description>
 
->Графическое описание protobuff
+<description>
+<summary>**Графическое описание protobuff**</summary>
 
 ![protobuff](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/protobuff.jpg "protobuff")
+</description>
 
 ### Выбор API
 
