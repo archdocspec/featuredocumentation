@@ -3,9 +3,9 @@
 >Краткое, четкое, понятное описание бизнес-требований к решению **значительно** упрощает их реализацию.
 
 >[!TIP]
->Свяжите описание БТ, процессов и их деталей с разделом документации [Часть1  для достижения единообразия по глоссарию, сущностям и понятиям.
+>Свяжите описание БТ, процессов и их деталей с разделом документации [Часть1](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/1_TEMPLATE_Solution_Description_Objectives_Entities.md "Описание целей и сущностей решения") для достижения единообразия по глоссарию, сущностям и понятиям.
 
-(https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/1_TEMPLATE_Solution_Description_Objectives_Entities.md "Описание целей и сущностей решения")
+
 
 ## Краткое описание БТ
 >[!TIP]
