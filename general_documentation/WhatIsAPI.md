@@ -40,8 +40,7 @@ API Различаются по области применения, архит�
 GraphQL подходит для сложных систем, где требуется гибкая настройка запросов.
 
 >**Графическое описание GraphQL**
-
-![GraphQL](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/graphql.png "GraphQL")
+>![GraphQL](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/graphql.png "GraphQL")
 
 > [!TIP]
 > **WebSocket** — технология, которая обеспечивает полнодуплексное общение между клиентом и сервером через постоянное соединение. 
