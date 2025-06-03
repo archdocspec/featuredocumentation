@@ -2,12 +2,16 @@
 
 ![RESTVisual](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/rest-api-1.png)
 
+-------
+
 ## Введение
 
 REST API (**R**epresentational **S**tate **T**ransfer **A**pplication **P**rogramming **I**nterface) — это архитектурный стиль, который использует HTTP-методы для выполнения операций CRUD (создание, чтение, обновление и удаление) над ресурсами. 
 
 
 REST API стал популярным благодаря своей простоте, масштабируемости и возможности работы с различными форматами данных, такими как JSON и XML.
+
+-------
 
 ## Основные принципы REST
 
@@ -20,6 +24,8 @@ REST API стал популярным благодаря своей прост�
 
 >Визуализация связи принципов REST
 >![RESTArc](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTArch.jpg)
+
+-------
 
 ## Структура вызова REST
 
@@ -38,6 +44,7 @@ REST API стал популярным благодаря своей прост�
 >Пояснение: Вызов REST - структура вызова
 >![RESTCall](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTSTRUCTUREDETAILED.png)
 
+-------
 
 ## Методы REST API
 
@@ -52,6 +59,8 @@ REST API стал популярным благодаря своей прост�
 
 >![RESTMethods.jpg](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTMethods.png)
 
+-------
+
 ## Описание основных методов REST API
 
 ### GET 
@@ -59,11 +68,11 @@ REST API стал популярным благодаря своей прост�
 Метод для получения информации об объекте (ресурсе).
 Метод удобен  и одновременно ограничем тем, что все данные запрашиваются в header запроса.
 
->**(+) Правильное применение**
+**(+) Правильное применение**
 Запрашивать содержимое страниц каталогов, магазинов, WEB UI
 
->**(-) Неправильное применение**
-Передавать в вызове GET конфиденциальные данные, логины, и так далее.
+**(-) Неправильное применение**
+не рекомендуется передавать в вызове GET конфиденциальные данные, логины, и так далее.
 
 > Структура Метода
 ```
@@ -73,17 +82,14 @@ GET <request-target>["?"<query>] HTTP/1.1
 **Пример вызова**
 
 <details>
-  <summary> Пример Запроса </summary		  
-  
+  <summary> Пример Запроса </summary>
 ```
 GET /contact HTTP/1.1
 Host: example.com
 User-Agent: curl/8.6.0
 Accept: */*
 ```
-
 </details>
-
 
 <details>
   <summary><br>Пример Ответа</br></summary			   
@@ -93,7 +99,6 @@ Content-Type: text/html; charset=UTF-8
 Date: Fri, 21 Jun 2024 14:18:33 GMT
 Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
 Content-Length: 1234
-
 <!doctype html>
 <!-- HTML content follows -->
 ```
@@ -112,7 +117,7 @@ POST <request-target>["?"<query>] HTTP/1.1
 ```
 
 <details>
-  <summary> Пример Запроса </summary>		    
+  <summary><br>Пример Запроса</br></summary>		    
 ```
 POST /test HTTP/1.1
 Host: example.com
@@ -122,27 +127,24 @@ field1=value1&field2=value2
 ```
 </details>
 
-
 <details>
   <summary><br>Пример Ответа</br></summary
 			  
   
 ```
-HTTP/1.1 201 Created
-Location: http://localhost/objectserver/restapi/alerts/status/kf/12481%3ANCOMS
-Cache-Control: no-cache
-Server: libnhttpd
-Date: Wed Jul 4 15:31:53 2012
-Connection: Keep-Alive
-Content-Type: application/json;charset=UTF-8
-Content-Length: 304
-{
-	"entry":	{
-		"affectedRows": 1,
-		"keyField": "12481%3ANCOMS",
-		"uri": "http://localhost/objectserver/restapi/alerts/status/kf/12481%3ANCOMS"
-	}
-}
+POST /test HTTP/1.1
+Host: example.com
+Content-Type: multipart/form-data;boundary="delimiter12345"
+
+--delimiter12345
+Content-Disposition: form-data; name="field1"
+
+value1
+--delimiter12345
+Content-Disposition: form-data; name="field2"; filename="example.txt"
+
+value2
+--delimiter12345--
 ```
 
 </details>
@@ -150,342 +152,149 @@ ___
 
 ###  PUT
 
-Метод для полной замены объекта (ресурса) на обновленную версию 
+PUT-запросы в основном используются для обновления или замены существующего ресурса на сервере. 
+Они также могут использоваться для создания нового ресурса, если он еще не существует на сервере. 
+В отличие от POST-запросов, которые обычно используются для создания новых ресурсов, PUT-запросы заменяют существующий ресурс целиком, а не добавляют новые данные. 
 
-> Подробное описание:  https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PUT
-
-Пример структуры:
-
-<details>
-  <summary>Запрос </summary
-			  
-  
+> Структура Метода
+```
+PUT <request-target>["?"<query>] HTTP/1.1
 ```
 
+<details>
+  <summary><br>Пример Запроса</br></summary>	  
+  
+```
+PUT /new.html HTTP/1.1
+Host: example.com
+Content-type: text/html
+Content-length: 16
+
+<p>New File</p>
 ```
 
 </details>
 
 <details>
-  <summary> Ответ </summary
-			  
-  
+  <summary><br>Пример Ответа</br></summary>
+	  
 ```
-
+HTTP/1.1 201 Created
+Content-Location: /new.html
 ```
-
 </details>
+
 ___
 
 ### PATCH
 
-Метод для частичного изменения объекта (ресурса) 
+PATCH-запросы в HTTP используются для частичного обновления ресурса, в отличие от PUT, который заменяет весь ресурс. PATCH-запросы отправляют только изменения, а не весь объект, что делает их более эффективными при необходимости обновить лишь отдельные части данных. 
 
-> Подробное описание: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/PATCH
-
+> Структура Метода
+```
+PATCH <request-target>["?"<query>] HTTP/1.1
+```
 
 <details>
-  <summary>Запрос </summary
-			  
-  
+  <summary><br>Пример Запроса</br></summary>
 ```
-PATCH /objectserver/restapi/alerts/status HTTP/1.1
-Accept: application/json
-Authorization: Basic dGVzdHVzZXIwMTpuZXRjb29s
+PATCH /users/123 HTTP/1.1
+Host: example.com
 Content-Type: application/json
-Host: localhost
-Connection: keep-alive
-Content-Length: 1092
+Content-Length: 27
+Authorization: Bearer ABC123
+
 {
-	"rowset": {
-		"coldesc": [
-			{
-				"type": "integer",
-				"name": "Acknowledged"
-			},
-			{
-				"type": "string",
-				"name": "Location"
-			},
-			{
-				"type": "integer",
-				"name": "OwnerUID"
-			},
-			{
-				"type": "integer",
-				"name": "OwnerGID"
-			},
-			{
-				"type": "utc",
-				"name": "LastOccurrence"
-			}
-		],
-		"rows": [
-			{
-				"Location": "UPDATED",
-				"LastOccurrence": 1341412235,
-				"Acknowledged": 1,
-				"OwnerUID": 65534,
-				"OwnerGID": 1
-			}
-		]
-	}
+  "status": "suspended"
 }
 ```
-
 </details>
 
 
 
 <details>
   <summary><br>Пример Ответа</br></summary
-			  
-  
 ```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
-Server: libnhttpd
-Date: Wed Jul 4 15:32:03 2012
-Connection: Keep-Alive:
-Content-Type: application/json;charset=UTF-8
-Content-Length: 158
-{
-	"entry":	{
-		"affectedRows": 10,
-		"uri": "http://localhost/objectserver/restapi/alerts/status"
-	}
-}
+HTTP/1.1 204 No Content
+Content-Location: /users/123
+ETag: "e0023aa4f"
 ```
-
 </details>
 ___
 
 #### DELETE
 
-Метод для удаления информации об объекте (ресурсе) 
+Метод DELETE в REST используется для удаления конкретного ресурса на сервере.
+Он отправляется на URL ресурса, который нужно удалить, и, если ресурс существует, он будет удален. 
 
-> Подробное описание: https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/DELETE
+> Структура Метода
+```
+DELETE <request-target>["?"<query>] HTTP/1.1
+```
 
 <details>
-  <summary>Запрос </summary
-			  
-  
+  <summary><br>Пример Запроса</br></summary>
 ```
-DELETE /objectserver/restapi/alerts/status HTTP/1.1
-Accept: application/json
-Authorization: Basic dGVzdHVzZXIwMTpuZXRjb29s
-Host: localhost
-Connection: keep-alive
+DELETE /file.html HTTP/1.1
+Host: example.com
 ```
-
 </details>
 
 
 <details>
-  <summary><br>Пример Ответа</br></summary
-			  
-  
+  <summary><br>Пример Ответа</br></summary	    
 ```
-HTTP/1.1 200 OK
-Cache-Control: no-cache
-Server: libnhttpd
-Date: Wed Jul 4 15:38:53 2012
-Connection: Keep-Alive:
-Content-Type: application/json;charset=UTF-8
-Content-Length: 157
-{
-	"entry":	{
-		"affectedRows": 10,
-		"uri": "http://localhost/objectserver/restapi/alerts/status"
-	}
-}
+HTTP/1.1 204 No Content
+Date: Wed, 04 Sep 2024 10:16:04 GMT
 ```
 
 </details>
 
+-------
 
-_____________
-_____________
-_____________
-## КРИВОЕ
+## Справочник по HTTP Кодам ответов
 
-### 1. GET
-Метод для получения данных.
+Справочный материал по HTTP кодам, приходящим в ответах на REST запросы
 
-Запрос:
-``` 
-GET /objectserver/restapi/alerts/status HTTP/1.1
-Accept: application/json
-Authorization: Basic dGVzdHVzZXIwMTpuZXRjb29s
-Host: localhost
-Connection: keep-alive
-```
-            
-Ответ:
+### Успешные ответы (200)
 
-```
-HTTP/1.1 200 OK
-{
-  "rowset": {
-    "osname": "NCOMS",
-    ...
-  }
-}
-```                   
+| Код   | Статус                  | Описание                                      |
+|-------|-------------------------|-----------------------------------------------|
+| 200 | OK                      | Запрос успешно выполнен.                     |
+| 201 | Created                 | Запрос успешно выполнен, ресурс создан.      |
+| 204 | No Content              | Запрос успешно выполнен, но нет содержимого. |
+| 206 | Partial Content         | Запрос выполнен частично.                     |
 
-                
-### 2. POST
-Метод для создания нового объекта.
+### Сообщения о перенаправлении (300)
 
-Запрос:
+| Код   | Статус                  | Описание                                      |
+| 300 | Multiple Choices        | Запрос имеет несколько возможных ответов.    |
+| 301 | Moved Permanently       | Запрашиваемый ресурс был перемещен навсегда. |
+| 302 | Found                   | Запрашиваемый ресурс временно доступен по другому URL. |
+| 303 | See Other               | Для получения ответа следует использовать другой URL. |
+| 304 | Not Modified            | Ресурс не был изменен с последнего запроса.  |
+| 307 | Temporary Redirect      | Временный редирект на другой URL.            |
 
-```
-POST /objectserver/restapi/alerts/status HTTP/1.1
-Content-Type: application/json
-...
-{
-  "rowset": {
-    "rows": [
-      {
-        "Identifier": "JunitEventTestInstance####1",
-        ...
-      }
-    ]
-  }
-}
-```                    
-POST /objectserver/restapi/alerts/status HTTP/1.1
-Content-Type: application/json
-...
-{
-  "rowset": {
-    "rows": [
-      {
-        "Identifier": "JunitEventTestInstance####1",
-        ...
-      }
-    ]
-  }
-}
-```
+### Ошибки клиента (400)
 
-Ответ:
-``` 
-HTTP/1.1 201 Created
-{
-  "entry": {
-    "affectedRows": 1,
-    "uri": "http://localhost/objectserver/restapi/alerts/status/kf/12481%3ANCOMS"
-  }
-}
-```                    
+| Код   | Статус                  | Описание                                      |
+| 400 | Bad Request             | Сервер не может обработать запрос из-за неверного синтаксиса. |
+| 401 | Unauthorized            | Запрос требует аутентификации.                |
+| 403 | Forbidden               | Сервер понял запрос, но отказывается его выполнять. |
+| 404 | Not Found               | Запрашиваемый ресурс не найден.               |
+| 405 | Method Not Allowed      | Метод, указанный в запросе, не поддерживается для данного ресурса. |
+| 408 | Request Timeout         | Время ожидания запроса истекло.               |
 
+### Ошибки сервера (500)
 
-                
-### 3. PUT
+| Код   | Статус                  | Описание                                      |
+| 500 | Internal Server Error   | Внутренняя ошибка сервера.                    |
+| 501 | Not Implemented         | Сервер не поддерживает функциональность, необходимую для выполнения запроса. |
+| 502 | Bad Gateway             | Сервер, действующий как шлюз, получил недопустимый ответ от вышестоящего сервера. |
+| 503 | Service Unavailable     | Сервер временно недоступен (например, из-за перегрузки или обслуживания). |
+| 504 | Gateway Timeout         | Время ожидания ответа от вышестоящего сервера истекло. |
 
-Метод для полной замены объекта.
->[!TIP]
-> Применяется для ????
-
-Запрос:
-``` 
- 
-PUT /objectserver/restapi/alerts/status/1 HTTP/1.1
-Content-Type: application/json
-...
-{
-  "Identifier": "UpdatedIdentifier",
-  ...
-}
-                    
-PUT /objectserver/restapi/alerts/status/1 HTTP/1.1
-Content-Type: application/json
-...
-{
-  "Identifier": "UpdatedIdentifier",
-  ...
-}
-
-                
-Ответ:
-
-```
- 
-HTTP/1.1 200 OK
-{
-  "entry": {
-    "affectedRows": 1
-  }
-}
-                    
-HTTP/1.1 200 OK
-{
-  "entry": {
-    "affectedRows": 1
-  }
-}
-
-```                
-### 4. PATCH
-Метод для частичного обновления объекта.
-
-
-``` 
-Запрос:
- 
-PATCH /objectserver/restapi/alerts/status/1 HTTP/1.1
-Content-Type: application/json
-...
-{
-  "LastOccurrence": 1341412235
-}
-                    
-PATCH /objectserver/restapi/alerts/status/1 HTTP/1.1
-Content-Type: application/json
-...
-{
-  "LastOccurrence": 1341412235
-}
-``` 
-                
-Ответ:
-``` 
- 
-HTTP/1.1 200 OK
-{
-  "entry": {
-    "affectedRows": 1
-  }
-}
-                    
-HTTP/1.1 200 OK
-{
-  "entry": {
-    "affectedRows": 1
-  }
-}
-``` 
-                
-### 5. DELETE
-Метод для удаления объекта.
-
-Запрос:
-
-``` 
-DELETE /objectserver/restapi/alerts/status/1 HTTP/1.1
-``` 
-                
-Ответ:
-
-``` 
-HTTP/1.1 200 OK
-{
-  "entry": {
-    "affectedRows": 1
-  }
-}
-``` 
+-------
                 
 ## Заключение
 
