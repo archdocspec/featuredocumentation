@@ -83,12 +83,14 @@ GET <request-target>["?"<query>] HTTP/1.1
 **Пример вызова**
 
 <details>
-  <summary> Пример Запроса </summary>
+  <summary><br>Пример Запроса</br></summary>
+
 ```
 GET /contact HTTP/1.1
 Host: example.com
 User-Agent: curl/8.6.0
 Accept: */*
+
 ```
 </details>
 
