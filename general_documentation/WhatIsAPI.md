@@ -33,7 +33,11 @@ GraphQL подходит для сложных систем, где требуе
 Она позволяет передавать данные в реальном времени, что делает её идеальной для игр, чатов и других приложений, требующих мгновенной реакции.
 
 **RPC** (**R**emote **P**rocedure **C**all) — механизм вызова процедур или функций на удалённом сервере, как если бы они были локальными. 
-RPC обеспечивает взаимодействие между компонентами системы и позволяет им обмениваться данными и выполнять задачи.
+RPC обеспечивает взаимодействие между компонентами системы и позволяет им обмениваться данными и выполнять задачи используя буфер протокола (ProtoBuff)
+
+[rpc](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RPC.jpg "RPC")
+
+[protobuff]("https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/protobuff.jpg"protobuff")
 
 ### Выбор API
 
