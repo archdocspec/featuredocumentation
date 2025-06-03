@@ -250,12 +250,12 @@ Host: example.com
 
 
 <details>
-  <summary><br>Пример Ответа</br></summary	    
+  <summary><br>Пример Ответа</br></summary>
+	
 ```
 HTTP/1.1 204 No Content
 Date: Wed, 04 Sep 2024 10:16:04 GMT
 ```
-
 </details>
 
 ____________________________________
