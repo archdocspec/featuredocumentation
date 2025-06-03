@@ -54,7 +54,7 @@ GraphQL подходит для сложных систем, где требуе
 RPC обеспечивает взаимодействие между компонентами системы и позволяет им обмениваться данными и выполнять задачи используя буфер протокола (ProtoBuff).
 
 > **Графическое описание RPC**
-
+> 
 ![rpc](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RPC.jpg "RPC")
 
 >**Графическое описание protobuff**
