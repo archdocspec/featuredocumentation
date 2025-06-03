@@ -24,14 +24,14 @@ API Различаются по области применения, архит�
     Он позволяет создавать масштабируемые и гибкие системы, которые легко интегрируются с другими сервисами.
     
 >Графическое описание REST    
-![REST](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTdescr.jpg "REST API")
+>![REST](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTdescr.jpg "REST API")
 
 > [!TIP]
 > **SOAP** (**S**imple **O**bject **A**ccess **P**rotocol) — протокол обмена структурированными данными в виде XML-сообщений, обеспечивающий безопасность и надёжность передачи информации между приложениями. 
     SOAP используется для создания веб-сервисов, которые могут взаимодействовать друг с другом.
 
 >Графическое описание SOAP    
-![SOAP](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/soap.png "SOAP")
+>![SOAP](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/soap.png "SOAP")
 
 
 > [!TIP]
@@ -47,7 +47,8 @@ GraphQL подходит для сложных систем, где требуе
 Она позволяет передавать данные в реальном времени, что делает её идеальной для игр, чатов и других приложений, требующих мгновенной реакции.
 
 > **Графическое описание WebSocket**
-![WebSocket](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/http_websocket.png "GraphQL")
+>
+>![WebSocket](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/http_websocket.png "GraphQL")
 
 > [!TIP]
 > **RPC** (**R**emote **P**rocedure **C**all) — механизм вызова процедур или функций на удалённом сервере, как если бы они были локальными. 
@@ -55,11 +56,11 @@ RPC обеспечивает взаимодействие между компо�
 
 > **Графическое описание RPC**
 > 
-![rpc](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RPC.jpg "RPC")
+>![rpc](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RPC.jpg "RPC")
 
 >**Графическое описание protobuff**
-
-![protobuff](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/protobuff.jpg "protobuff")
+> 
+>![protobuff](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/protobuff.jpg "protobuff")
 
 ### Выбор API
 
