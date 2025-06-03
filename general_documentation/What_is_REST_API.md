@@ -96,6 +96,7 @@ Accept: */*
 
 <details>
   <summary><br>Пример Ответа</br></summary			   
+
 ```
 HTTP/1.1 200 OK
 Content-Type: text/html; charset=UTF-8
@@ -105,6 +106,7 @@ Content-Length: 1234
 <!doctype html>
 <!-- HTML content follows -->
 ```
+
 </details>
 
 ____________________________________
