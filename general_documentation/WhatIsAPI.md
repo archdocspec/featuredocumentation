@@ -37,7 +37,7 @@ RPC обеспечивает взаимодействие между компо�
 
 ![rpc](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RPC.jpg "RPC")
 
-![protobuff]("https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/protobuff.jpg"protobuff")
+![protobuff](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/protobuff.jpg "protobuff")
 
 ### Выбор API
 
@@ -56,7 +56,7 @@ RPC обеспечивает взаимодействие между компо�
 
 В таблице собраны характеристики популярных типов API, включая области применения.
 
-![Сводная таблица критериев API](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/main_api_types.jpg)"Сводная таблица критериев API")
+![Сводная таблица критериев API](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/main_api_types.jpg "Сводная таблица критериев API")
 
 ----
 
