@@ -199,8 +199,7 @@ PATCH <request-target>["?"<query>] HTTP/1.1
 ```
 
 <details>
-  <summary><br>Пример Запроса</br></summary>	 
-
+  <summary><br>Пример Запроса</br></summary>
 ```
 PATCH /users/123 HTTP/1.1
 Host: example.com
@@ -240,6 +239,7 @@ DELETE <request-target>["?"<query>] HTTP/1.1
 
 <details>
   <summary><br>Пример Запроса</br></summary>
+
 ```
 DELETE /file.html HTTP/1.1
 Host: example.com
