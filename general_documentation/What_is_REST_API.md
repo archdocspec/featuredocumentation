@@ -1,4 +1,6 @@
-# REST API
+# Гайд по REST API
+
+![RESTVisual](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/rest-api-1.png)
 
 ## Введение
 
@@ -34,7 +36,7 @@ REST API стал популярным благодаря своей прост�
 >![RESTCall](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTdescr.jpg)
 
 >Пояснение: Вызов REST - структура вызова
->![RESTCall](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTStructure.jpg)
+>![RESTCall](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTSTRUCTUREDETAILED.png)
 
 ## Методы REST API
 
@@ -54,17 +56,18 @@ REST API стал популярным благодаря своей прост�
 ### GET 
 
 Метод для получения информации об объекте (ресурсе).
-Удобен  и одновременно ограничем тем, что все данные запрашиваются в header запроса.
+Метод удобен  и одновременно ограничем тем, что все данные запрашиваются в header запроса.
+
 (+) МОЖНО
 Запрашивать содержимое страниц каталогов, магазинов, WEB UI
 (-) НЕ НУЖНО
-Передавать конфиденциальные данные, логины+пароли и т.п.
+Передавать в нем конфиденциальные данные, логины+пароли и т.п.
 
 > Подробное описание:  https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/GET | 
 
 
 <details>
-  <summary> Запрос </summary
+  <summary> Пример Запроса </summary
 			  
   
 ```
