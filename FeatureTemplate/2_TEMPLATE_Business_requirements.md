@@ -55,7 +55,8 @@
 >Добавьте скриншоты проблемы, старого интерфейса или иные графические данные из БТ.
 Если актуально и ситуация комплексная - то в ключите ссылки на макеты, существующие стенды и так далее.
 
-![Bad Interface](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/BadUI_Phone_Selector.gif)
+>Пример скриншота нежелательного вида абстрактного элемента GUI
+>![Bad Interface](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/BadUI_Phone_Selector.gif)
 
 ___________________________________
 
@@ -94,7 +95,8 @@ ___________________________________
 >Добавьте скриншоты решения.
 В случае маштабного UI аспекта решения - добавьте нужный макет.
 
-
+>Пример скриншота желаемого вида абстрактного элемента GUI
+>![Good](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/goodui.jpg)
 
 ## Дополнительные Материалы
 
