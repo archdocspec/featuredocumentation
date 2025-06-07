@@ -49,7 +49,7 @@ ____________________________________
 > 3. Затем, обрабатывает запрос и возвращает ответ (Response) клиенту.
 
 >Пояснение: Вызов REST - прохождение вызова и получение ответа
->![RESTCall](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTdescr.jpg)
+>![RESTReqResp](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTdescr.jpg)
 
 ### Вызов
 
@@ -64,11 +64,12 @@ ____________________________________
 | Тело запроса (body) | Данные для обработки, как правило в формате JSON |
 
 >Пояснение: Изображение структуры вызова REST
->![RESTCall](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTSTRUCTUREDETAILED.png)
+>![RESTRequest](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/HTTP%20Request.jpeg)
 
 ### Ответ
 >[!TIP]
 > Каждый ответ REST  также состоит из определенных частей, логически связанных с частями предшествующего вызова:
+
 | Часть Ответа | Описание |
 | :--: |:-- |
 | Код ответа  | HTTP Код, признак успешности выполнения запроса. Для унификации используются стандартные коды ответа. |
@@ -76,7 +77,7 @@ ____________________________________
 | Тело запроса (body) | Информация, которую запрашивал клиент. Ответ тоже чаще всего передается в формате JSON. Но тело ответа может быть и пустым |
 
 >Пояснение: Изображение структуры ответа REST
->![RESTCall](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/RESTSTRUCTUREDETAILED.png)
+>![RESTResponse](https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/HTTP%20Response.jpeg)
 
 #### HTTP Коды ответов
 
