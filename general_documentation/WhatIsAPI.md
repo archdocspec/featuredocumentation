@@ -96,7 +96,9 @@ RPC обеспечивает взаимодействие между компо�
 
 <details>
 <summary>Развернуть</summary>
+    
     ![Сводная таблица критериев API]            (https://github.com/archdocspec/featuredocumentation/blob/main/general_documentation/assets/main_api_types.jpg "Сводная таблица критериев API")
+    
 </details>
 
 ----
