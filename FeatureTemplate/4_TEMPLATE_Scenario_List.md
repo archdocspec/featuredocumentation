@@ -14,7 +14,10 @@
 1. https://www.figma.com/design/wP2kIzn9TvjDtnS8oQztyb/E-commerce-Shop-Mobile-Wireframe-Flows--Community-?node-id=521-7861&p=f&t=9I0WhMCDbiJLhEsX-0 - EN, исчерпывающий
 2. https://www.figma.com/design/ZfelEWXGR73MtJ0mRy2CZK/%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD-DKY--Community-?node-id=0-1&p=f&t=ZfOovu9NwlKTputO-0 - RU, простой
 3. https://www.figma.com/design/8OWFho9dk1ojDUpLJgITvi/%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8--Community-?node-id=0-1&p=f&t=qTFtZcsg2g2jBLC8-0 = как 2
-4.
+
+Выбираем 3 для начала
+
+use case - через нейронку? выведи весь список
 
 ## Общий USE CASE Сценариев
 
