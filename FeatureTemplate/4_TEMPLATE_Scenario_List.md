@@ -28,7 +28,11 @@ N
 Подраздел, где будут содержаться общие данные по всем сценариям
 
 ### Use Case Diagram
+(вариантов использования)
 
+Шаблон
+
+![Образец UC Диаграммы](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/UC.drawio.png)
 
 
 ### Список с кратким описанием (Use Case)
