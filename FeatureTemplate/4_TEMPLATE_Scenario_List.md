@@ -30,10 +30,14 @@ N
 ### Use Case Diagram
 (вариантов использования)
 
-Шаблон
+**Шаблон**
 
 ![Образец UC Диаграммы](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/UC.drawio.png)
 
+
+>**Образец Заполнения**
+
+![Образец UC Диаграммы](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/UC.drawio.png)
 
 ### Список с кратким описанием (Use Case)
 
