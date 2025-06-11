@@ -32,7 +32,7 @@ N
 
 **Шаблон**
 
-![Образец UC Диаграммы](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/UC.drawio.png)
+![Образец UC Диаграммы](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/UC/UC%20Example.drawio.png)
 
 
 >**Образец Заполнения**
