@@ -37,7 +37,7 @@ N
 
 >**Образец Заполнения**
 
-![Образец UC Диаграммы](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/UC.drawio.png)
+![UC ALL](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/UC/uc-UC%20ALL.drawio.png)
 
 ### Список с кратким описанием (Use Case)
 
