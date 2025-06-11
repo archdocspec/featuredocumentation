@@ -59,68 +59,7 @@ N
 | 8          | Просмотр информации о товаре   | Пользователь может получить подробную информацию о характеристиках товара, таких как размер экрана, количество ядер и мощность блока питания. |
 | 9          | Заказ товара                  | Пользователь может оформить заказ на товар, выбрав его в корзине и следуя процессу оформления заказа. |
 
-### Общая схема сценариев
 
-Activity diagram с примером отображения всех сценариев в фиче
-
-![image](https://github.com/user-attachments/assets/390ebe31-4bbd-4e8f-943a-937c4e3dfe8e)
-
-### Общая sequence-диаграмма сценариев
-
-Добавить диаграмму с общей последовательностью выполнения сценариев.
-В обобщенном формате, с вербальными формулировками ИЛИ только с главными вызовами/интеграциями (если главные можно выделить).
-
-![изображение](https://github.com/user-attachments/assets/8b048027-b8d0-496d-93ee-ba9bb428567c)
-
-<details>
-  <summary>PlantUML Code</summary>
-  
-  ```
-  @startuml
-skinparam MaxMessageSize 150
-
-actor user
-participant frontend #ivory
-participant backend #azure
-
-== Сценарий 1 ==
-
-autonumber "<b>[Шаг ]"
-user -> frontend: Ввести данные
-
-frontend -> backend : Передать данные
-backend -> frontend : OK
-
-alt#LightSalmon Ошибка
-
-backend -> frontend : Error
-
-end
-
-== Сценарий N ==
-
-autonumber "<b>[Шаг ]"
-
-backend -> backend: Обработка данных
-
-alt#LightSalmon Ошибка
-
-backend -> frontend : Ошибка
-frontend -> frontend : Возникла ошибка
-
-end
-
-backend -> frontend : Успешно
-frontend -> frontend : Данные обработаны
-user -> frontend: Нажать "Ок"
-
-== Остальные возможные сценарии ==
-
-@enduml
-
-  ```
-
-</details>
 
 
 ### Общий макет 
