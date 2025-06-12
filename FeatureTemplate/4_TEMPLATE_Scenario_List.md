@@ -84,13 +84,6 @@ N
 
 СОСТАВЛЯЮТ СЦЕНАРИЙ Покупки
 
-Макеты к сценариям
-
-
-
-![Макет](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/%D0%BA%D1%83%D1%80%D1%8C%D0%B5%D1%80%D0%BE%D0%BC%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5.png)
-![Макет](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/%D0%BA%D1%83%D1%80%D1%8C%D0%B5%D1%80%D0%BE%D0%BC%20%D0%BD%D0%BE%D0%B2%D1%8B%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5.png)
-
 
 **3**
 
@@ -102,18 +95,7 @@ N
 
 ### Общий макет 
 
-Добавить ссылку/разместить макет решения с обозначением на нем сценариев.
 
-<details>
-  <summary>Источник макета</summary>
-  https://www.figma.com/design/IOsJzqY4c6VPfJDN2WeeXf/Home-Interior-Design-Website-    Wireframe-(Community)?node-id=0-1&node-type=canvas&t=st3jI6blsbLjIY6x-0
-https://github.com/NonameX11/TestPetDocumentationProject/blob/main/Feature%20Template/9%20-%20%D0%B4%D0%BE%D0%BF.%20%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B.md больше ссылок на источники - тут
-</details>
+![Full](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/full_layout.png)
 
-![изображение](https://github.com/user-attachments/assets/41e74aa6-2c19-4f05-9cc6-771332527ed5)
-
-***
-
-
-
-
+https://www.figma.com/design/8OWFho9dk1ojDUpLJgITvi/%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8--Community-?m=auto&t=RroNeUdqsDccd7B4-6
