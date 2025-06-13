@@ -3,28 +3,26 @@
 == Раздел для описания компонентов, задействованных в создании решения: учет, изменения, использование и т.п. ==
 
 ## Общий список Компонентов решения
-| № | Компонент   | Наименование         | Описание                                                                 | Технологии               |
+| № | Компонент   | Наименование         | Описание                                                      | Технологии    |
 |---|-------------|----------------------|-------------------------------------------------------------------------|---------------------------|
-| 1 | User GUI    | usergui              | Пользовательский интерфейс. Витрина товаров. Личный кабинет пользователя. Логин процесс. Корзина покупок | React / Vue.js            |
-| 2 | Сервис управления товарами | productService     | Обрабатывает запросы на получение списка товаров, их деталей и категорий. | Python / Flask            |
-| 3 | База данных товаров | productDBService   | Хранит и управляет данными о товарах, их характеристиках и категориях. | PostgreSQL                |
-| 4 | Сервис аутентификации | authService        | Обрабатывает процесс логина и регистрации пользователей, управление сессиями. | Python / Flask            |
-| 5 | База данных пользователей | userDBService      | Хранит и управляет данными о пользователях, их профилями и аутентификацией. | PostgreSQL                |
-| 6 | Сервис управления пользователями | userService        | Управляет данными пользователей, включая их профили и настройки. | Python / Flask            |
-| 7 | Сервис управления контентом (CMS) | cmsService         | Управляет сделками, корзиной, расчетом стоимости и другими связанными функциями. | Python / Flask            |
-| 8 | База данных заказов | orderDBService     | Хранит и управляет данными о заказах, их статусах и связанных сделках. | PostgreSQL                |
-| 9 | Сервис логистики | logisticsService    | Управляет процессами доставки, отслеживания заказов и взаимодействия с курьерскими службами. | Python / Flask            |
-| 10| База данных логистики | logisticsDBService  | Хранит и управляет данными о доставках, курьерских службах и статусах заказов. | PostgreSQL                |
-| 11| Kafka Broker | kafkaBroker          | Обеспечивает асинхронную обработку сообщений и взаимодействие между сервисами. | Apache Kafka              |
-| 12| Кэш-система  | redis                | Используется для кэширования данных и ускорения доступа к часто запрашиваемой информации. | Redis                     |
-
+| 1 | User GUI    | usergui   | Пользовательский интерфейс. Витрина товаров. Личный кабинет пользователя. Логин процесс. Корзина покупок | React / Vue.js |
+| 3 | База данных товаров | productDBService   | Хранит и управляет данными о товарах, их характеристиках и категориях. | PostgreSQL     |
+| 4 | База данных пользователей | userDBService      | Хранит и управляет данными о пользователях, их профилями и аутентификацией. | PostgreSQL     |
+| 5 | Сервис управления пользователями | userService        | Управляет данными пользователей, включая их профили и настройки. | Python / Flask |
+| 6 | Сервис управления контентом (CMS) | cmsService         | Управляет сделками, корзиной, расчетом стоимости и другими связанными функциями. | Python / Flask |
+| 7 | База данных заказов | orderDBService     | Хранит и управляет данными о заказах, их статусах и связанных сделках. | PostgreSQL     |
+| 8 | Сервис логистики | logisticsService    | Управляет процессами доставки, отслеживания заказов и взаимодействия с курьерскими службами. | Python / Flask |
 
 API draft
 
 ```
 @startuml
 
+
+
+
 actor "Пользователь" as User #Application
+note over User  : Кафку и редис убрать, т.к. это ШАБЛОН, надо проще
 participant "User GUI" as userGui #Business
 participant "Сервис управления пользователями" as userService #Business
 database "База данных пользователей" as userDBService
@@ -34,11 +32,9 @@ note over cmsService : В него встроен фин. модуль
 
 database "База данных заказов" as orderDBService
 database "База данных товаров" as productDBService
-participant "Kafka Broker" as kafkaBroker #Business
-participant "Redis" as redis #Business
-participant "Сервис логистики и Доставка" as logisticsService #Business
 
-database "База данных логистики" as logisticsDBService
+participant "Сервис логистики и Доставка" as logisticsService #Business
+note over logisticsService : БД Логистики убрать, достаточно бд заказов
 
 group UC1 Просмотр товаров
     User -> userGui : GET /products
@@ -58,8 +54,8 @@ group UC2.1 Добавление товара в корзину
     User -> userGui : POST /cart/add
     userGui -> cmsService : POST /api/cart/add
     activate cmsService
-    cmsService -> redis : Кэширование информации о корзине
-    cmsService -> kafkaBroker : SEND /cart/update
+    cmsService -> cmsService  : Кэширование информации о корзине
+    cmsService -> cmsService : SEND /cart/update
     deactivate cmsService
     User -> userGui : GET /cart
     activate userGui
@@ -68,28 +64,29 @@ end
 group UC2.2 Действия с параметрами списка товаров
     alt Варианты действий с параметрами списка товаров
         User -> userGui : GET /cart
-        userGui -> redis : GET /api/cart
+        userGui -> cmsService  : GET /api/cart
     else
         User -> userGui : PATCH /cart/update
         userGui -> cmsService : PATCH /api/cart/update
-        cmsService -> kafkaBroker : SEND /cart/update
+        cmsService -> cmsService : SEND /cart/update
     else
         User -> userGui : DELETE /cart/remove
         userGui -> cmsService : DELETE /api/cart/remove
-        cmsService -> kafkaBroker : SEND /cart/remove
+        cmsService -> cmsService : SEND /cart/remove
     else
         User -> userGui : POST /cart/select-all
         userGui -> cmsService : POST /api/cart/select-all
-        cmsService -> kafkaBroker : SEND /cart/select-all
+        cmsService -> cmsService : SEND /cart/select-all
     end
 end
 
 group UC2 Заказ товара
     User -> userGui : GET /cart/total
     User -> userGui : POST /order
-    userGui -> cmsService : POST /api/order
+    userGui -> cmsService : rpc(New order)
+    cmsService -> userService : записать заказ в историю
     cmsService -> orderDBService : CREATE /order
-    cmsService -> kafkaBroker : SEND /order/create
+    cmsService -> cmsService : SEND /order/create
 end
 
 group UC2.3 Ввод и проверка данных клиента
@@ -108,8 +105,8 @@ end
 group UC2.5 Доставка
     deactivate userGui
     userGui -> logisticsService : POST /order/dispatch
-    logisticsService -> logisticsDBService : UPDATE /order/status
-    logisticsService -> kafkaBroker : SEND /order/dispatch
+    logisticsService -> orderDBService : UPDATE /order/status
+    logisticsService -> cmsService : SEND /order/dispatch
 end
 
 autonumber stop
