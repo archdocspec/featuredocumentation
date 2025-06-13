@@ -52,7 +52,7 @@ N
 
 **Диаграмма**
 
-![UC ALL](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/UC/uc-UC%20ALL.drawio.png)
+![UC ALL](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/UC/ucv1-UC%20ALL.drawiov1.png)
 
 **Таблица**
 
