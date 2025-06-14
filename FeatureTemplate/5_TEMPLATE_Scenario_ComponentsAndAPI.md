@@ -7,7 +7,7 @@
 
 | Вызов | Назначение (описание) | Сервис | Инициатор обращения | Пример запроса | Пример ответа |
 |-------|-----------------------|--------|---------------------|----------------|----------------|
-| GET /products | Получение списка товаров для отображения в пользовательском интерфейсе. | cmsService | User GUI | Запрос: `GET /api/v1/products` Content-Type: `application/json` | Ответ: `200 OK` `[{ “id”: 1, “name”: “Товар 1”, “price”: 100 }, { “id”: 2, “name”: “Товар 2”, “price”: 200 }]` |
+| GET /products | Получение списка товаров для отображения в пользовательском интерфейсе. | cmsService | User GUI | Запрос:``` `GET /api/v1/products` Content-Type: `application/json` ```| Ответ: `200 OK` `[{ “id”: 1, “name”: “Товар 1”, “price”: 100 }, { “id”: 2, “name”: “Товар 2”, “price”: 200 }]` |
 | POST /cart/add | Добавление выбранных товаров в корзину. | cmsService | User GUI | Запрос: `POST /api/v1/cart/add` Content-Type: `application/json` Тело: `{ “productId”: 1, “quantity”: 2 }` | Ответ: `200 OK` `{ “message”: “Товар добавлен в корзину” }` |
 | GET /cart | Получение данных о товарах в корзине. | cmsService | User GUI | Запрос: `GET /api/v1/cart` Content-Type: `application/json` | Ответ: `200 OK` `[{ “productId”: 1, “quantity”: 2 }, { “productId”: 2, “quantity”: 1 }]` |
 | PATCH /cart/update | Обновление количества товаров в корзине. | cmsService | User GUI | Запрос: `PATCH /api/v1/cart/update` Content-Type: `application/json` Тело: `{ “productId”: 1, “quantity”: 3 }` | Ответ: `200 OK` `{ “message”: “Количество товара обновлено” }` |
