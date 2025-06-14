@@ -2,6 +2,25 @@
 
 == Раздел для описания компонентов, задействованных в создании решения: учет, изменения, использование и т.п. ==
 
+
+## Интегр взаимод
+
+| Вызов | Назначение (описание) | Сервис | Инициатор обращения | Пример запроса | Пример ответа |
+|-------|-----------------------|--------|---------------------|----------------|----------------|
+| GET /products | Получение списка товаров для отображения в пользовательском интерфейсе. | cmsService | User GUI | Запрос: `GET /api/v1/products` Content-Type: `application/json` | Ответ: `200 OK` `[{ “id”: 1, “name”: “Товар 1”, “price”: 100 }, { “id”: 2, “name”: “Товар 2”, “price”: 200 }]` |
+| POST /cart/add | Добавление выбранных товаров в корзину. | cmsService | User GUI | Запрос: `POST /api/v1/cart/add` Content-Type: `application/json` Тело: `{ “productId”: 1, “quantity”: 2 }` | Ответ: `200 OK` `{ “message”: “Товар добавлен в корзину” }` |
+| GET /cart | Получение данных о товарах в корзине. | cmsService | User GUI | Запрос: `GET /api/v1/cart` Content-Type: `application/json` | Ответ: `200 OK` `[{ “productId”: 1, “quantity”: 2 }, { “productId”: 2, “quantity”: 1 }]` |
+| PATCH /cart/update | Обновление количества товаров в корзине. | cmsService | User GUI | Запрос: `PATCH /api/v1/cart/update` Content-Type: `application/json` Тело: `{ “productId”: 1, “quantity”: 3 }` | Ответ: `200 OK` `{ “message”: “Количество товара обновлено” }` |
+| DELETE /cart/remove | Удаление товара из корзины. | cmsService | User GUI | Запрос: `DELETE /api/v1/cart/remove` Content-Type: `application/json` Тело: `{ “productId”: 1 }` | Ответ: `200 OK` `{ “message”: “Товар удален из корзины” }` |
+| POST /cart/select-all | Выбор всех товаров в корзине. | cmsService | User GUI | Запрос: `POST /api/v1/cart/select-all` Content-Type: `application/json` | Ответ: `200 OK` `{ “message”: “Все товары выбраны” }` |
+| GET /cart/total | Получение итоговой суммы заказа в корзине. | cmsService | User GUI | Запрос: `GET /api/v1/cart/total` Content-Type: `application/json` | Ответ: `200 OK` `{ “total”: 400 }` |
+| POST /order | Создание нового заказа и запись его в историю. | cmsService | User GUI | Запрос: `POST /api/v1/order` Content-Type: `application/json` Тело: `{ “cartId”: 1, “userId”: 123 }` | Ответ: `200 OK` `{ “message”: “Заказ создан”, “orderId”: 456 }` |
+| POST /order/validate | Валидация данных клиента перед оформлением заказа. | userService | User GUI | Запрос: `POST /api/v1/order/validate` Content-Type: `application/json` Тело: `{ “userId”: 123 }` | Ответ: `200 OK` `{ “valid”: true }` |
+| POST /api/payment | Обработка платежа за заказ. | cmsService | User GUI | Запрос: `POST /api/v1/payment` Content-Type: `application/json` Тело: `{ “orderId”: 456, “amount”: 400 }` | Ответ: `200 OK` `{ “message”: “Оплата подтверждена” }` |
+| POST /order/dispatch | Запуск процесса доставки заказа. | logisticsService | User GUI | Запрос: `POST /api/v1/order/dispatch` Content-Type: `application/json` Тело: `{ “orderId”: 456 }` | Ответ: `200 OK` `{ “message”: “Заказ передан на доставку” }` |
+| GET /order/receive | Получение информации о статусе доставки заказа. | logisticsService | User GUI | Запрос: `GET /api/v1/order/receive` Content-Type: `application/json` | Ответ: `200 OK` `{ “status”: “Доставлено” }` |
+
+
 ## Список Вызовов
 
 | Вызов | Назначение (описание) | Пример запроса | Пример ответа |
