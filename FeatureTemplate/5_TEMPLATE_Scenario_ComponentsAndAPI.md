@@ -2,30 +2,81 @@
 
 == Раздел для описания компонентов, задействованных в создании решения: учет, изменения, использование и т.п. ==
 
-TEST
+Test 2
 
 | Назначение (описание) | Вызов | Ответ | Пример запроса | Пример ответа |
 |-----------------------------------------------------------|--------------------------------|--------------------------------|----------------------------------------------------|---------------------------------------------------|
-| Получение списка товаров для отображения в пользовательском интерфейсе. | GET /products | 200 OK (список товаров) | `GET /products` | `[{ “id”: 1, “name”: “Товар 1”, “price”: 100 }, { “id”: 2, “name”: “Товар 2”, “price”: 200 }]` |
-| Добавление выбранных товаров в корзину. | POST /cart/add | 200 OK | `POST /cart/add`
-`{ “productId”: 1, “quantity”: 2 }` | `{“message”: “Товар добавлен в корзину”}` |
-| Получение данных о товарах в корзине. | GET /cart | 200 OK (данные о корзине) | `GET /cart` | `[{ “productId”: 1, “quantity”: 2 }, { “productId”: 2, “quantity”: 1 }]` |
-| Обновление количества товаров в корзине. | PATCH /cart/update | 200 OK | `PATCH /cart/update`
-`{ “productId”: 1, “quantity”: 3 }` | `{“message”: “Количество товара обновлено”}` |
-| Удаление товара из корзины. | DELETE /cart/remove | 200 OK | `DELETE /cart/remove`
-`{ “productId”: 1 }` | `{“message”: “Товар удален из корзины”}` |
-| Выбор всех товаров в корзине. | POST /cart/select-all | 200 OK | `POST /cart/select-all` | `{“message”: “Все товары выбраны”}` |
-| Получение итоговой суммы заказа в корзине. | GET /cart/total | 200 OK (итоговая сумма) | `GET /cart/total` | `{“total”: 400}` |
-| Создание нового заказа и запись его в историю. | POST /order | 200 OK | `POST /order`
-`{ “cartId”: 1, “userId”: 123 }` | `{“message”: “Заказ создан”, “orderId”: 456}` |
-| Валидация данных клиента перед оформлением заказа. | POST /order/validate | 200 OK | `POST /order/validate`
-`{ “userId”: 123 }` | `{“valid”: true}` |
-| Обработка платежа за заказ. | POST /api/payment | 200 OK (подтверждение оплаты) | `POST /api/payment`
-`{ “orderId”: 456, “amount”: 400 }` | `{“message”: “Оплата подтверждена”}` |
-| Запуск процесса доставки заказа. | POST /order/dispatch | 200 OK | `POST /order/dispatch`
-`{ “orderId”: 456 }` | `{“message”: “Заказ передан на доставку”}` |
+| Получение списка товаров для отображения в пользовательском интерфейсе. | GET /products | 200 OK (список товаров) | Запрос:
+`GET /api/v1/products`
+Content-Type: `application/json` | Ответ:
+`200 OK`
+`[{“id”: 1, “name”: “Товар 1”, “price”: 100}, {“id”: 2, “name”: “Товар 2”, “price”: 200}]` |
+| Добавление выбранных товаров в корзину. | POST /cart/add | 200 OK | Запрос:
+`POST /api/v1/cart/add`
+Content-Type: `application/json`
+Тело: `{ “productId”: 1, “quantity”: 2 }` | Ответ:
+`200 OK`
+`{“message”: “Товар добавлен в корзину”}` |
+| Получение данных о товарах в корзине. | GET /cart | 200 OK (данные о корзине) | Запрос:
+`GET /api/v1/cart`
+Content-Type: `application/json` | Ответ:
+`200 OK`
+`[{“productId”: 1, “quantity”: 2}, {“productId”: 2, “quantity”: 1}]` |
+| Обновление количества товаров в корзине. | PATCH /cart/update | 200 OK | Запрос:
+`PATCH /api/v1/cart/update`
+Content-Type: `application/json`
+Тело: `{ “productId”: 1, “quantity”: 3 }` | Ответ:
+`200 OK`
+`{“message”: “Количество товара обновлено”}` |
+| Удаление товара из корзины. | DELETE /cart/remove | 200 OK | Запрос:
+`DELETE /api/v1/cart/remove`
+Content-Type: `application/json`
+Тело: `{ “productId”: 1 }` | Ответ:
+`200 OK`
+`{“message”: “Товар удален из корзины”}` |
+| Выбор всех товаров в корзине. | POST /cart/select-all | 200 OK | Запрос:
+`POST /api/v1/cart/select-all`
+Content-Type: `application/json` | Ответ:
+`200 OK`
+`{“message”: “Все товары выбраны”}` |
+| Получение итоговой суммы заказа в корзине. | GET /cart/total | 200 OK (итоговая сумма) | Запрос:
+`GET /api/v1/cart/total`
+Content-Type: `application/json` | Ответ:
+`200 OK`
+`{“total”: 400}` |
+| Создание нового заказа и запись его в историю. | POST /order | 200 OK | Запрос:
+`POST /api/v1/order`
+Content-Type: `application/json`
+Тело: `{ “cartId”: 1, “userId”: 123 }` | Ответ:
+`200 OK`
+`{“message”: “Заказ создан”, “orderId”: 456}` |
+| Валидация данных клиента перед оформлением заказа. | POST /order/validate | 200 OK | Запрос:
+`POST /api/v1/order/validate`
+Content-Type: `application/json`
+Тело: `{ “userId”: 123 }` | Ответ:
+`200 OK`
+`{“valid”: true}` |
+| Обработка платежа за заказ. | POST /api/payment | 200 OK (подтверждение оплаты) | Запрос:
+`POST /api/v1/payment`
+Content-Type: `application/json`
+Тело: `{ “orderId”: 456, “amount”: 400 }` | Ответ:
+`200 OK`
+`{“message”: “Оплата подтверждена”}` |
+| Запуск процесса доставки заказа. | POST /order/dispatch | 200 OK | Запрос:
+`POST /api/v1/order/dispatch`
+Content-Type: `application/json`
+Тело: `{ “orderId”: 456 }` | Ответ:
+`200 OK`
+`{“message”: “Заказ передан на доставку”}` |
+| Получение информации о статусе доставки заказа. | GET /order/receive | 200 OK | Запрос:
+`GET /api/v1/order/receive`
+Content-Type: `application/json` | Ответ:
+`200 OK`
+`{“status”: “Доставлено”}` |
 
-| Получение информации о статусе доставки заказа. | GET /order/receive | 200 OK | `GET /order/receive` | `{“status”: “Доставлено”}` |
+TEST
+
+
 
 ## Общий список Компонентов решения
 | № | Компонент   | Наименование         | Описание                                                      | Технологии    |
