@@ -88,8 +88,8 @@ Content-Type: application/json
 ```
                 
 ### Просмотр корзины
-Запрос:
-http
+#### Запрос:
+
 ```
  
 GET /api/v1/cart/view HTTP/1.1
@@ -101,7 +101,7 @@ Host: example.com
 Accept: application/json
 
                 
-Ответ:
+#### Ответ:
 http
 ```
 15
@@ -120,28 +120,13 @@ Content-Type: application/json
   ],
   "total": 75999.0
 }
-                    
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "uid": "C001",
-  "items": [
-    {
-      "uid": "CI001",
-      "productid": "m1125",
-      "quantity": 1
-    }
-  ],
-  "total": 75999.0
-}
+```
 
                 
-Изменение количества товаров
-Запрос:
-http
+### Изменение количества товаров
+#### Запрос:
+
 ```
- 
 PATCH /api/v1/cart/items HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -151,21 +136,9 @@ Content-Type: application/json
   "quantity": 2
 }
                     
-PATCH /api/v1/cart/items HTTP/1.1
-Host: example.com
-Content-Type: application/json
+#### Ответ:
 
-{
-  "uid": "CI001",
-  "quantity": 2
-}
-
-                
-Ответ:
-http
 ```
-15
- 
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -180,30 +153,11 @@ Content-Type: application/json
   ],
   "total": 151998.0
 }
-                    
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "uid": "C001",
-  "items": [
-    {
-      "uid": "CI001",
-      "productid": "m1125",
-      "quantity": 2
-    }
-  ],
-  "total": 151998.0
-}
-
                 
-Удаление товара
+#### Удаление товара
 Запрос:
-http
+
 ```
-7
-8
- 
 DELETE /api/v1/cart/items HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -211,30 +165,17 @@ Content-Type: application/json
 {
   "uid": "CI001"
 }
-                    
-DELETE /api/v1/cart/items HTTP/1.1
-Host: example.com
-Content-Type: application/json
-
-{
-  "uid": "CI001"
-}
-
                 
-Ответ:
-http
+#### Ответ:
+
 ```
  
 HTTP/1.1 204 No Content
-                    
-HTTP/1.1 204 No Content
+             
+### Создание заказа из корзины
+#### Запрос:
 
-                
-Создание заказа из корзины
-Запрос:
-http
 ```
- 
 POST /api/v1/orders/create HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -249,25 +190,10 @@ Content-Type: application/json
   "adress": "321"
 }
                     
-POST /api/v1/orders/create HTTP/1.1
-Host: example.com
-Content-Type: application/json
+```               
+### Ответ:
 
-{
-  "userid": 123,
-  "paymentmethod": "online",
-  "deliverymethod": "delivery",
-  "contactname": "Дмитрий",
-  "contactphone": "+7-812-509-65-00",
-  "email": "example@example.com",
-  "adress": "321"
-}
-
-                
-Ответ:
-http
 ```
- 
 HTTP/1.1 201 Created
 Content-Type: application/json
 
@@ -285,80 +211,35 @@ Content-Type: application/json
   "adress": "321",
   "products": ["m1125"]
 }
-                    
-HTTP/1.1 201 Created
-Content-Type: application/json
-
-{
-  "uid": "O001",
-  "userid": 123,
-  "creationdate": 1749999076,
-  "orderstate": "delivered",
-  "totalprice": 75999.0,
-  "paymentmethod": "online",
-  "deliverymethod": "delivery",
-  "contactname": "Дмитрий",
-  "contactphone": "+7-812-509-65-00",
-  "email": "example@example.com",
-  "adress": "321",
-  "products": ["m1125"]
-}
-
-                
-Ввод и проверка данных клиента
-Запрос:
-http
 ```
-10
- 
+                
+### Ввод и проверка данных клиента
+#### Запрос:
+
+```
 POST /api/v1/checkout/validate HTTP/1.1
 Host: example.com
 Content-Type: application/json
-
 {
   "name": "Дмитрий",
   "phone": "+7-812-509-65-00",
   "email": "example@example.com"
 }
-                    
-POST /api/v1/checkout/validate HTTP/1.1
-Host: example.com
-Content-Type: application/json
+               
+#### Ответ:
 
-{
-  "name": "Дмитрий",
-  "phone": "+7-812-509-65-00",
-  "email": "example@example.com"
-}
-
-                
-Ответ:
-http
 ```
-7
- 
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
   "valid": true
 }
-                    
-HTTP/1.1 200 OK
-Content-Type: application/json
+               
+### Проверка данных пользователя
+#### Запрос:
 
-{
-  "valid": true
-}
-
-                
-Проверка данных пользователя
-Запрос:
-http
 ```
-7
-8
- 
 POST /api/v1/users/validate HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -366,43 +247,23 @@ Content-Type: application/json
 {
   "userid": 123
 }
-                    
-POST /api/v1/users/validate HTTP/1.1
-Host: example.com
-Content-Type: application/json
-
-{
-  "userid": 123
-}
-
+```                    
                 
-Ответ:
-http
+#### Ответ:
+
 ```
-7
- 
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
   "valid": true
 }
-                    
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "valid": true
-}
-
-                
-Запрос данных пользователя
-Запрос:
-http
 ```
-7
-8
- 
+                
+### Запрос данных пользователя
+#### Запрос:
+
+```
 POST /api/v1/users HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -410,22 +271,11 @@ Content-Type: application/json
 {
   "userid": 123
 }
-                    
-POST /api/v1/users HTTP/1.1
-Host: example.com
-Content-Type: application/json
-
-{
-  "userid": 123
-}
-
+```                    
                 
-Ответ:
-http
+#### Ответ:
+
 ```
-10
-11
- 
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -436,24 +286,13 @@ Content-Type: application/json
   "phone": "+7-812-509-65-00",
   "email": "example@example.com"
 }
-                    
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "uid": "U001",
-  "userid": 123,
-  "name": "Дмитрий",
-  "phone": "+7-812-509-65-00",
-  "email": "example@example.com"
-}
-
-                
-Обновление статуса заказа
-Запрос:
-http
 ```
- 
+               
+### Обновление статуса заказа
+
+#### Запрос:
+
+```
 PATCH /api/v1/orders/update HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -462,23 +301,10 @@ Content-Type: application/json
   "uid": "O001",
   "orderstate": "shipped"
 }
-                    
-PATCH /api/v1/orders/update HTTP/1.1
-Host: example.com
-Content-Type: application/json
+```              
+#### Ответ:
 
-{
-  "uid": "O001",
-  "orderstate": "shipped"
-}
-
-                
-Ответ:
-http
 ```
-7
-8
- 
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -486,19 +312,12 @@ Content-Type: application/json
   "uid": "O001",
   "orderstate": "shipped"
 }
-                    
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "uid": "O001",
-  "orderstate": "shipped"
-}
-
+```
                 
-Изменение данных пользователя
-Запрос:
-http
+### Изменение данных пользователя
+
+#### Запрос:
+
 ```
  
 PUT /api/v1/users/123 HTTP/1.1
@@ -509,22 +328,11 @@ Content-Type: application/json
   "name": "Дмитрий",
   "email": "new.email@example.com"
 }
-                    
-PUT /api/v1/users/123 HTTP/1.1
-Host: example.com
-Content-Type: application/json
-
-{
-  "name": "Дмитрий",
-  "email": "new.email@example.com"
-}
-
-                
-Ответ:
-http
 ```
-10
- 
+                
+#### Ответ:
+
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -534,24 +342,13 @@ Content-Type: application/json
   "name": "Дмитрий",
   "email": "new.email@example.com"
 }
-                    
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "uid": "U001",
-  "userid": 123,
-  "name": "Дмитрий",
-  "email": "new.email@example.com"
-}
-
-                
-Оплата заказа
-Запрос:
-http
 ```
-10
- 
+                
+### Оплата заказа
+#### Запрос:
+
+```
+
 POST /api/v1/checkout/payment HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -571,14 +368,11 @@ Content-Type: application/json
   "amount": 75999.0,
   "paymentmethod": "online"
 }
-
-                
-Ответ:
-http
 ```
-7
-8
- 
+                
+### Ответ:
+
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -586,21 +380,12 @@ Content-Type: application/json
   "status": "paid",
   "orderid": "O001"
 }
-                    
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "status": "paid",
-  "orderid": "O001"
-}
-
-                
-Подтверждение оплаты
-Запрос:
-http
 ```
- 
+                
+### Подтверждение оплаты
+#### Запрос:
+
+```
 POST /api/v1/payments HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -609,23 +394,10 @@ Content-Type: application/json
   "orderid": "O001",
   "paymentid": "P001"
 }
-                    
-POST /api/v1/payments HTTP/1.1
-Host: example.com
-Content-Type: application/json
+```               
+#### Ответ:
 
-{
-  "orderid": "O001",
-  "paymentid": "P001"
-}
-
-                
-Ответ:
-http
 ```
-7
-8
- 
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -633,25 +405,15 @@ Content-Type: application/json
   "status": "confirmed",
   "paymentid": "P001"
 }
-                    
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "status": "confirmed",
-  "paymentid": "P001"
-}
-
-                
-Обновление корзины
-Запрос:
-http
 ```
- 
+                
+### Обновление корзины
+#### Запрос
+
+```
 PATCH /api/v1/cart/update HTTP/1.1
 Host: example.com
 Content-Type: application/json
-
 {
   "uid": "C001",
   "items": [
@@ -661,28 +423,11 @@ Content-Type: application/json
     }
   ]
 }
-                    
-PATCH /api/v1/cart/update HTTP/1.1
-Host: example.com
-Content-Type: application/json
-
-{
-  "uid": "C001",
-  "items": [
-    {
-      "uid": "CI001",
-      "quantity": 3
-    }
-  ]
-}
-
-                
-Ответ:
-http
 ```
-7
-8
- 
+              
+#### Ответ:
+
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -690,15 +435,5 @@ Content-Type: application/json
   "uid": "C001",
   "total": 227997.0
 }
-                    
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "uid": "C001",
-  "total": 227997.0
-}
-
-                
-Теперь текст структурирован и оформлен в соответствии с вашими требованиями.
+```
 
