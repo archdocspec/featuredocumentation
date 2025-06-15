@@ -24,4 +24,6 @@
 
 ## Диаграмма компонентов
 
+![CompDiag](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Components/compALLv1.png)
+
 С4 ???
