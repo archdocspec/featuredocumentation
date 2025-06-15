@@ -13,15 +13,7 @@ Content-Type: application/json
   "productid": "m1125",
   "quantity": 1
 }
-                    
-POST /api/v1/cart/add HTTP/1.1
-Host: example.com
-Content-Type: application/json
 
-{
-  "productid": "m1125",
-  "quantity": 1
-}
 ```
                 
 #### Ответ:
@@ -41,54 +33,49 @@ Content-Type: application/json
   ],
   "total": 75999.0
 }
-                    
+
+```
+                
+### POST /api/v1/cart/create
+Создание корзины
+|Запрос|Ответ|
+|------|-----|
+|```                
+POST /api/v1/cart/create HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "userid": 123
+}
+```|```
 HTTP/1.1 201 Created
 Content-Type: application/json
 
 {
   "uid": "C001",
-  "items": [
-    {
-      "uid": "CI001",
-      "productid": "m1125",
-      "quantity": 1
-    }
-  ],
-  "total": 75999.0
+  "items": [],
+  "total": 0.0
 }
-```
-                
-### Создание корзины
+
+```|
+
+
 #### Запрос:
-http
-```
- 
+
+```                
 POST /api/v1/cart/create HTTP/1.1
 Host: example.com
-Content-Type: application/json
-
-{}
-                    
-POST /api/v1/cart/create HTTP/1.1
-Host: example.com
-Content-Type: application/json
-
-{}
-
-                
-Ответ:
-http
-```
- 
-HTTP/1.1 201 Created
 Content-Type: application/json
 
 {
-  "uid": "C001",
-  "items": [],
-  "total": 0.0
+  "userid": 123
 }
-                    
+```
+               
+#### Ответ:
+
+```
 HTTP/1.1 201 Created
 Content-Type: application/json
 
@@ -98,8 +85,9 @@ Content-Type: application/json
   "total": 0.0
 }
 
+```
                 
-Просмотр корзины
+### Просмотр корзины
 Запрос:
 http
 ```
