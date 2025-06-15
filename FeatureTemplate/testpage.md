@@ -2,6 +2,8 @@
 Добавление товара в корзину
 
 #### Запрос
+<details>
+  <summary><br>РАЗВЕРНУТЬ</br></summary>summary>
 
 ```
 POST /api/v1/cart/add HTTP/1.1
@@ -12,7 +14,7 @@ Content-Type: application/json
   "quantity": 1
 }
 ```
-                
+</details>                
 #### Ответ
 
 ``` 
