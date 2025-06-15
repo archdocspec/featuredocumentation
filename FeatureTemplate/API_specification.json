@@ -1,0 +1,444 @@
+openapi: 3.0.0
+info:
+  title: API для корзины и заказов
+  version: 1.0.0
+servers:
+  - url: https://example.com
+paths:
+  /api/v1/cart/add:
+    post:
+      summary: Добавление товара в корзину
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productid:
+                  type: string
+                quantity:
+                  type: integer
+      responses:
+        '201':
+          description: Товар успешно добавлен в корзину
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                        productid:
+                          type: string
+                        quantity:
+                          type: integer
+                  total:
+                    type: number
+                    format: float
+
+  /api/v1/cart/create:
+    post:
+      summary: Создание корзины
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userid:
+                  type: integer
+      responses:
+        '201':
+          description: Корзина успешно создана
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  items:
+                    type: array
+                    items: {}
+                  total:
+                    type: number
+                    format: float
+
+  /api/v1/cart/view:
+    get:
+      summary: Просмотр корзины
+      responses:
+        '200':
+          description: Корзина успешно просмотрена
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                        productid:
+                          type: string
+                        quantity:
+                          type: integer
+                  total:
+                    type: number
+                    format: float
+
+  /api/v1/cart/items:
+    patch:
+      summary: Изменение количества товаров
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uid:
+                  type: string
+                quantity:
+                  type: integer
+      responses:
+        '200':
+          description: Количество товаров успешно изменено
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                        productid:
+                          type: string
+                        quantity:
+                          type: integer
+                  total:
+                    type: number
+                    format: float
+
+    delete:
+      summary: Удаление товара
+      responses:
+        '204':
+          description: Товар успешно удален
+
+  /api/v1/orders/create:
+    post:
+      summary: Создание заказа из корзины
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userid:
+                  type: integer
+                paymentmethod:
+                  type: string
+                deliverymethod:
+                  type: string
+                contactname:
+                  type: string
+                contactphone:
+                  type: string
+                email:
+                  type: string
+                adress:
+                  type: string
+      responses:
+        '201':
+          description: Заказ успешно создан
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  userid:
+                    type: integer
+                  creationdate:
+                    type: integer
+                  orderstate:
+                    type: string
+                  totalprice:
+                    type: number
+                    format: float
+                  paymentmethod:
+                    type: string
+                  deliverymethod:
+                    type: string
+                  contactname:
+                    type: string
+                  contactphone:
+                    type: string
+                  email:
+                    type: string
+                  adress:
+                    type: string
+                  products:
+                    type: array
+                    items:
+                      type: string
+
+  /api/v1/checkout/validate:
+    post:
+      summary: Ввод и проверка данных клиента
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                phone:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '200':
+          description: Данные клиента валидны
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  valid:
+                    type: boolean
+
+  /api/v1/users/validate:
+    post:
+      summary: Проверка данных пользователя
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userid:
+                  type: integer
+      responses:
+        '200':
+          description: Данные пользователя валидны
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  valid:
+                    type: boolean
+
+  /api/v1/users:
+    post:
+      summary: Запрос данных пользователя
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userid:
+                  type: integer
+      responses:
+        '200':
+          description: Данные пользователя успешно получены
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  userid:
+                    type: integer
+                  name:
+                    type: string
+                  phone:
+                    type: string
+                  email:
+                    type: string
+
+  /api/v1/orders/update:
+    patch:
+      summary: Обновление статуса заказа
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uid:
+                  type: string
+                orderstate:
+                  type: string
+      responses:
+        '200':
+          description: Статус заказа успешно обновлен
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  orderstate:
+                    type: string
+
+  /api/v1/users/{userid}:
+    put:
+      summary: Изменение данных пользователя
+      parameters:
+        - name: userid
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '200':
+          description: Данные пользователя успешно обновлены
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  userid:
+                    type: integer
+                  name:
+                    type: string
+                  email:
+                    type: string
+
+  /api/v1/checkout/payment:
+    post:
+      summary: Оплата заказа
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderid:
+                  type: string
+                amount:
+                  type: number
+                  format: float
+                paymentmethod:
+                  type: string
+      responses:
+        '200':
+          description: Заказ успешно оплачен
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  orderid:
+                    type: string
+
+  /api/v1/payments:
+    post:
+      summary: Подтверждение оплаты
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderid:
+                  type: string
+                paymentid:
+                  type: string
+      responses:
+        '200':
+          description: Оплата успешно подтверждена
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  paymentid:
+                    type: string
+
+  /api/v1/cart/update:
+    patch:
+      summary: Обновление корзины
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uid:
+                  type: string
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      uid:
+                        type: string
+                      quantity:
+                        type: integer
+      responses:
+        '200':
+          description: Корзина успешно обновлена
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  total:
+                    type: number
+                    format: float
