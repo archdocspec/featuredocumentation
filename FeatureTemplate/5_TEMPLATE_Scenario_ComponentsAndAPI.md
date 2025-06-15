@@ -74,14 +74,14 @@ HTTP -- [guiGateway] : REST API
 
 ## Список Вызовов
 
-Добавление товара в корзину
-Запрос:
+### Добавление товара в корзину
+#### Запрос:
 
-http
+POST /api/v1/cart/add 
+```
+HTTP/1.1
 
-9
- 
-POST /api/v1/cart/add HTTP/1.1
+
 Host: example.com
 Content-Type: application/json
 
@@ -133,7 +133,7 @@ Content-Type: application/json
 "total": 75999.0
 }
 
-Создание корзины
+### Создание корзины
 Запрос:
 
 http
@@ -223,7 +223,7 @@ Content-Type: application/json
 "total": 75999.0
 }
 
-Изменение количества товаров
+### Изменение количества товаров
 Запрос:
 
 http
@@ -317,12 +317,6 @@ HTTP/1.1 204 No Content
 
 http
 
-9
-10
-11
-12
-13
-14
  
 POST /api/v1/orders/create HTTP/1.1
 Host: example.com
