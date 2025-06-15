@@ -1,546 +1,486 @@
-## ОПИСАНИЕ МЕТОДОВ API
+# Swagger Yaml preparation
+## Инструкции
 
-### POST /api/v1/cart/add
-Добавление товара в корзину
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-  
-
-```
-POST /api/v1/cart/add HTTP/1.1
-Host: example.com
-Content-Type: application/json
-{
-  "productid": "m1125",
-  "quantity": 1
-}
-```
-
-</details>
-
-#### Ответ
+https://editor.swagger.io/ - здесь тестим
+https://starkovden.github.io/swagger-ui-tutorial.html
+https://starkovden.github.io/integrating-swagger-with-docs.html
+https://github.com/peter-evans/swagger-github-pages
 
 <details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-  
-``` 
-HTTP/1.1 201 Created
-Content-Type: application/json
-{
-  "uid": "C001",
-  "items": [
-    {
-      "uid": "CI001",
-      "productid": "m1125",
-      "quantity": 1
-    }
-  ],
-  "total": 75999.0
-}
-```
-  
-</details>
-  
-### POST /api/v1/cart/create
-Создание корзины
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-  
-```                
-POST /api/v1/cart/create HTTP/1.1
-Host: example.com
-Content-Type: application/json
-{
-  "userid": 123
-}
-```
-  
+  <summary>инструкция от ИИ в гугле</summary>
+  Обзор от ИИ
+Чтобы добавить Swagger в GitHub репозиторий, вам нужно сначала сгенерировать файл спецификации OpenAPI (Swagger) для вашего API, а затем разместить его на GitHub Pages. Вот как это можно сделать:
+1. Генерация спецификации OpenAPI:
+Автоматическая генерация:
+Если у вас уже есть код API, вы можете использовать инструменты, такие как Swagger Codegen, для автоматической генерации спецификации OpenAPI на основе вашего кода и аннотаций. 
+Ручное написание:
+Вы можете написать спецификацию OpenAPI вручную в формате YAML или JSON, используя Swagger Editor (онлайн или оффлайн) для проверки и редактирования. 
+2. Размещение спецификации на GitHub Pages:
+Создайте ветку gh-pages:
+В вашем репозитории создайте новую ветку с именем gh-pages, если она еще не существует.
+Скопируйте файл спецификации:
+Поместите сгенерированный файл swagger.json (или swagger.yaml) в корневой каталог ветки gh-pages.
+Включите GitHub Pages:
+Перейдите в настройки репозитория на GitHub и включите GitHub Pages, выбрав ветку gh-pages в качестве источника.
+Доступ к документации:
+Ваша документация Swagger теперь будет доступна по адресу: https://<имя_пользователя_github>.github.io/<имя_репозитория>/. 
+3. Интеграция Swagger UI (опционально):
+Использование CDN:
+Вы можете использовать CDN для подключения Swagger UI (интерфейса для просмотра и взаимодействия с вашей спецификацией) в вашем HTML.
+Встраивание в существующую документацию:
+Если у вас уже есть сайт с документацией, вы можете встроить Swagger UI в него. 
+Пример:
+Предположим, у вас есть репозиторий my-api на GitHub с именем пользователя my-username. Вы создаете файл swagger.json и помещаете его в ветку gh-pages. Затем вы включаете GitHub Pages, выбрав gh-pages как источник. Теперь ваша документация Swagger будет доступна по адресу https://my-username.github.io/my-api/. 
+Дополнительные советы:
+Если вы используете инструмент для автоматической генерации спецификации, такой как Swagger Codegen, следуйте инструкциям по настройке и использованию этого инструмента. 
+Рассмотрите возможность использования SwaggerHub для более продвинутой совместной работы над API. 
+Убедитесь, что ваш файл спецификации OpenAPI соответствует спецификации для правильной работы Swagger UI. 
 </details>
 
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-  
+## Спецификация
 ```
-HTTP/1.1 201 Created
-Content-Type: application/json
-{
-  "uid": "C001",
-  "items": [],
-  "total": 0.0
-}
+openapi: 3.0.0
+info:
+  title: API для корзины и заказов
+  version: 1.0.0
+servers:
+  - url: https://example.com
+paths:
+  /api/v1/cart/add:
+    post:
+      summary: Добавление товара в корзину
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productid:
+                  type: string
+                quantity:
+                  type: integer
+      responses:
+        '201':
+          description: Товар успешно добавлен в корзину
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                        productid:
+                          type: string
+                        quantity:
+                          type: integer
+                  total:
+                    type: number
+                    format: float
+
+  /api/v1/cart/create:
+    post:
+      summary: Создание корзины
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userid:
+                  type: integer
+      responses:
+        '201':
+          description: Корзина успешно создана
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  items:
+                    type: array
+                    items: {}
+                  total:
+                    type: number
+                    format: float
+
+  /api/v1/cart/view:
+    get:
+      summary: Просмотр корзины
+      responses:
+        '200':
+          description: Корзина успешно просмотрена
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                        productid:
+                          type: string
+                        quantity:
+                          type: integer
+                  total:
+                    type: number
+                    format: float
+
+  /api/v1/cart/items:
+    patch:
+      summary: Изменение количества товаров
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uid:
+                  type: string
+                quantity:
+                  type: integer
+      responses:
+        '200':
+          description: Количество товаров успешно изменено
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        uid:
+                          type: string
+                        productid:
+                          type: string
+                        quantity:
+                          type: integer
+                  total:
+                    type: number
+                    format: float
+
+    delete:
+      summary: Удаление товара
+      responses:
+        '204':
+          description: Товар успешно удален
+
+  /api/v1/orders/create:
+    post:
+      summary: Создание заказа из корзины
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userid:
+                  type: integer
+                paymentmethod:
+                  type: string
+                deliverymethod:
+                  type: string
+                contactname:
+                  type: string
+                contactphone:
+                  type: string
+                email:
+                  type: string
+                adress:
+                  type: string
+      responses:
+        '201':
+          description: Заказ успешно создан
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  userid:
+                    type: integer
+                  creationdate:
+                    type: integer
+                  orderstate:
+                    type: string
+                  totalprice:
+                    type: number
+                    format: float
+                  paymentmethod:
+                    type: string
+                  deliverymethod:
+                    type: string
+                  contactname:
+                    type: string
+                  contactphone:
+                    type: string
+                  email:
+                    type: string
+                  adress:
+                    type: string
+                  products:
+                    type: array
+                    items:
+                      type: string
+
+  /api/v1/checkout/validate:
+    post:
+      summary: Ввод и проверка данных клиента
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                phone:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '200':
+          description: Данные клиента валидны
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  valid:
+                    type: boolean
+
+  /api/v1/users/validate:
+    post:
+      summary: Проверка данных пользователя
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userid:
+                  type: integer
+      responses:
+        '200':
+          description: Данные пользователя валидны
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  valid:
+                    type: boolean
+
+  /api/v1/users:
+    post:
+      summary: Запрос данных пользователя
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userid:
+                  type: integer
+      responses:
+        '200':
+          description: Данные пользователя успешно получены
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  userid:
+                    type: integer
+                  name:
+                    type: string
+                  phone:
+                    type: string
+                  email:
+                    type: string
+
+  /api/v1/orders/update:
+    patch:
+      summary: Обновление статуса заказа
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uid:
+                  type: string
+                orderstate:
+                  type: string
+      responses:
+        '200':
+          description: Статус заказа успешно обновлен
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  orderstate:
+                    type: string
+
+  /api/v1/users/{userid}:
+    put:
+      summary: Изменение данных пользователя
+      parameters:
+        - name: userid
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '200':
+          description: Данные пользователя успешно обновлены
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  userid:
+                    type: integer
+                  name:
+                    type: string
+                  email:
+                    type: string
+
+  /api/v1/checkout/payment:
+    post:
+      summary: Оплата заказа
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderid:
+                  type: string
+                amount:
+                  type: number
+                  format: float
+                paymentmethod:
+                  type: string
+      responses:
+        '200':
+          description: Заказ успешно оплачен
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  orderid:
+                    type: string
+
+  /api/v1/payments:
+    post:
+      summary: Подтверждение оплаты
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderid:
+                  type: string
+                paymentid:
+                  type: string
+      responses:
+        '200':
+          description: Оплата успешно подтверждена
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  paymentid:
+                    type: string
+
+  /api/v1/cart/update:
+    patch:
+      summary: Обновление корзины
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uid:
+                  type: string
+                items:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      uid:
+                        type: string
+                      quantity:
+                        type: integer
+      responses:
+        '200':
+          description: Корзина успешно обновлена
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  uid:
+                    type: string
+                  total:
+                    type: number
+                    format: float
 ```
-  
-</details>
-                
-### GET /api/v1/cart/view
-Просмотр корзины
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-  
-```
-GET /api/v1/cart/view HTTP/1.1
-Host: example.com
-Accept: application/json
-```
-  
-</details>
-
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-  
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-{
-  "uid": "C001",
-  "items": [
-    {
-      "uid": "CI001",
-      "productid": "m1125",
-      "quantity": 1
-    }
-  ],
-  "total": 75999.0
-}
-```
-  
-</details>
-   
-### PATCH /api/v1/cart/items
-Изменение количества товаров
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-  
-```
-PATCH /api/v1/cart/items HTTP/1.1
-Host: example.com
-Content-Type: application/json
-{
-  "uid": "CI001",
-  "quantity": 2
-}
-```
-  
-</details>
-                   
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-  
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-{
-  "uid": "C001",
-  "items": [
-    {
-      "uid": "CI001",
-      "productid": "m1125",
-      "quantity": 2
-    }
-  ],
-  "total": 151998.0
-}
-```
-  
-</details>
-                 
-### Удаление товара
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-  
-```
-DELETE /api/v1/cart/items HTTP/1.1
-Host: example.com
-Content-Type: application/json
-
-{
-  "uid": "CI001"
-}
-```
-
-</details>
-                 
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-HTTP/1.1 204 No Content
-```
-
-</details>
-           
-### Создание заказа из корзины
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-POST /api/v1/orders/create HTTP/1.1
-Host: example.com
-Content-Type: application/json
-{
-  "userid": 123,
-  "paymentmethod": "online",
-  "deliverymethod": "delivery",
-  "contactname": "Дмитрий",
-  "contactphone": "+7-812-509-65-00",
-  "email": "example@example.com",
-  "adress": "321"
-}                    
-```
-
-</details>
-     
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-HTTP/1.1 201 Created
-Content-Type: application/json
-{
-  "uid": "O001",
-  "userid": 123,
-  "creationdate": 1749999076,
-  "orderstate": "delivered",
-  "totalprice": 75999.0,
-  "paymentmethod": "online",
-  "deliverymethod": "delivery",
-  "contactname": "Дмитрий",
-  "contactphone": "+7-812-509-65-00",
-  "email": "example@example.com",
-  "adress": "321",
-  "products": ["m1125"]
-}
-```
-
-</details>
-                 
-### POST /api/v1/checkout/validate
-Ввод и проверка данных клиента
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-POST /api/v1/checkout/validate HTTP/1.1
-Host: example.com
-Content-Type: application/json
-{
-  "name": "Дмитрий",
-  "phone": "+7-812-509-65-00",
-  "email": "example@example.com"
-}
-```
-
-</details>
-                
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-{
-  "valid": true
-}
-```
-
-</details>
-         
-### POST /api/v1/users/validate
-Проверка данных пользователя
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-POST /api/v1/users/validate HTTP/1.1
-Host: example.com
-Content-Type: application/json
-
-{
-  "userid": 123
-}
-```
-            
-</details>
-       
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-{
-  "valid": true
-}
-```
-
-</details>
-                 
-### POST /api/v1/users
-Запрос данных пользователя
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-POST /api/v1/users HTTP/1.1
-Host: example.com
-Content-Type: application/json
-
-{
-  "userid": 123
-}
-```
-                 
-</details>
-                 
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "uid": "U001",
-  "userid": 123,
-  "name": "Дмитрий",
-  "phone": "+7-812-509-65-00",
-  "email": "example@example.com"
-}
-```
-
-</details>
-                
-### PATCH /api/v1/orders/update
-Обновление статуса заказа
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-PATCH /api/v1/orders/update HTTP/1.1
-Host: example.com
-Content-Type: application/json
-{
-  "uid": "O001",
-  "orderstate": "shipped"
-}
-```
-
-</details>
-              
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-{
-  "uid": "O001",
-  "orderstate": "shipped"
-}
-```
-
-</details>
-                 
-### PUT /api/v1/users/userid
-Изменение данных пользователя
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-PUT /api/v1/users/123 HTTP/1.1
-Host: example.com
-Content-Type: application/json
-{
-  "name": "Дмитрий",
-  "email": "new.email@example.com"
-}
-```
-
-</details>
-                 
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "uid": "U001",
-  "userid": 123,
-  "name": "Дмитрий",
-  "email": "new.email@example.com"
-}
-```
-
-</details>
-                 
-### POST /api/v1/checkout/payment
-Оплата заказа
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-POST /api/v1/checkout/payment HTTP/1.1
-Host: example.com
-Content-Type: application/json
-{
-  "orderid": "O001",
-  "amount": 75999.0,
-  "paymentmethod": "online"
-}
-```
-
-</details>
-                 
-### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-{
-  "status": "paid",
-  "orderid": "O001"
-}
-```
-
-</details>
-                 
-### POST /api/v1/payments
-Подтверждение оплаты
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-POST /api/v1/payments HTTP/1.1
-Host: example.com
-Content-Type: application/json
-{
-  "orderid": "O001",
-  "paymentid": "P001"
-}
-```
-
-</details>
-             
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "status": "confirmed",
-  "paymentid": "P001"
-}
-```
-
-</details>
-                 
-### PATCH /api/v1/cart/update
-Обновление корзины
-
-#### Запрос
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-PATCH /api/v1/cart/update HTTP/1.1
-Host: example.com
-Content-Type: application/json
-{
-  "uid": "C001",
-  "items": [
-    {
-      "uid": "CI001",
-      "quantity": 3
-    }
-  ]
-}
-```
-
-</details>
-        
-#### Ответ
-
-<details>
-  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>
-
-```
-HTTP/1.1 200 OK
-Content-Type: application/json
-
-{
-  "uid": "C001",
-  "total": 227997.0
-}
-```
-
-</details>
- 
