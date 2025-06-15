@@ -74,137 +74,713 @@ HTTP -- [guiGateway] : REST API
 
 ## Список Вызовов
 
+Добавление товара в корзину
+Запрос:
 
+http
 
+9
+ 
+POST /api/v1/cart/add HTTP/1.1
+Host: example.com
+Content-Type: application/json
 
+{
+  "productid": "m1125",
+  "quantity": 1
+}
+                    
+POST /api/v1/cart/add HTTP/1.1
+Host: example.com
+Content-Type: application/json
 
+{
+  "productid": "m1125",
+  "quantity": 1
+}
 
-API draft
+                
+Ответ:
+
+http
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+"uid": "C001",
+"items": [
+{
+"uid": "CI001",
+"productid": "m1125",
+"quantity": 1
+}
+],
+"total": 75999.0
+}
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+"uid": "C001",
+"items": [
+{
+"uid": "CI001",
+"productid": "m1125",
+"quantity": 1
+}
+],
+"total": 75999.0
+}
+
+Создание корзины
+Запрос:
+
+http
+
+ 
+POST /api/v1/cart/create HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{}
+                    
+POST /api/v1/cart/create HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{}
+
+                
+Ответ:
+
+http
+9
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+"uid": "C001",
+"items": [],
+"total": 0.0
+}
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+"uid": "C001",
+"items": [],
+"total": 0.0
+}
+
+Просмотр корзины
+Запрос:
+
+http
+
+ 
+GET /api/v1/cart/view HTTP/1.1
+Host: example.com
+Accept: application/json
+                    
+GET /api/v1/cart/view HTTP/1.1
+Host: example.com
+Accept: application/json
+
+                
+Ответ:
+
+http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "C001",
+"items": [
+{
+"uid": "CI001",
+"productid": "m1125",
+"quantity": 1
+}
+],
+"total": 75999.0
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "C001",
+"items": [
+{
+"uid": "CI001",
+"productid": "m1125",
+"quantity": 1
+}
+],
+"total": 75999.0
+}
+
+Изменение количества товаров
+Запрос:
+
+http
+
+9
+ 
+PATCH /api/v1/cart/items HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "uid": "CI001",
+  "quantity": 2
+}
+                    
+PATCH /api/v1/cart/items HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "uid": "CI001",
+  "quantity": 2
+}
+
+                
+Ответ:
+
+http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "C001",
+"items": [
+{
+"uid": "CI001",
+"productid": "m1125",
+"quantity": 2
+}
+],
+"total": 151998.0
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "C001",
+"items": [
+{
+"uid": "CI001",
+"productid": "m1125",
+"quantity": 2
+}
+],
+"total": 151998.0
+}
+
+Удаление товара
+Запрос:
+
+http
+
+ 
+DELETE /api/v1/cart/items HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "uid": "CI001"
+}
+                    
+DELETE /api/v1/cart/items HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "uid": "CI001"
+}
+
+                
+Ответ:
+
+http
+HTTP/1.1 204 No Content
+
+HTTP/1.1 204 No Content
+
+Создание заказа из корзины
+Запрос:
+
+http
+
+9
+10
+11
+12
+13
+14
+ 
+POST /api/v1/orders/create HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "userid": 123,
+  "paymentmethod": "online",
+  "deliverymethod": "delivery",
+  "contactname": "Дмитрий",
+  "contactphone": "+7-812-509-65-00",
+  "email": "example@example.com",
+  "adress": "321"
+}
+                    
+POST /api/v1/orders/create HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "userid": 123,
+  "paymentmethod": "online",
+  "deliverymethod": "delivery",
+  "contactname": "Дмитрий",
+  "contactphone": "+7-812-509-65-00",
+  "email": "example@example.com",
+  "adress": "321"
+}
+
+                
+Ответ:
+
+http
+16
+17
+18
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+"uid": "O001",
+"userid": 123,
+"creationdate": 1749999076,
+"orderstate": "delivered",
+"totalprice": 75999.0,
+"paymentmethod": "online",
+"deliverymethod": "delivery",
+"contactname": "Дмитрий",
+"contactphone": "+7-812-509-65-00",
+"email": "example@example.com",
+"adress": "321",
+"products": ["m1125"]
+}
+
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+"uid": "O001",
+"userid": 123,
+"creationdate": 1749999076,
+"orderstate": "delivered",
+"totalprice": 75999.0,
+"paymentmethod": "online",
+"deliverymethod": "delivery",
+"contactname": "Дмитрий",
+"contactphone": "+7-812-509-65-00",
+"email": "example@example.com",
+"adress": "321",
+"products": ["m1125"]
+}
+
+Ввод и проверка данных клиента
+Запрос:
+
+http
+
+9
+10
+ 
+POST /api/v1/checkout/validate HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "name": "Дмитрий",
+  "phone": "+7-812-509-65-00",
+  "email": "example@example.com"
+}
+                    
+POST /api/v1/checkout/validate HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "name": "Дмитрий",
+  "phone": "+7-812-509-65-00",
+  "email": "example@example.com"
+}
+
+                
+Ответ:
+
+http
+7
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"valid": true
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"valid": true
+}
+
+Проверка данных пользователя
+Запрос:
+
+http
+
+ 
+POST /api/v1/users/validate HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "userid": 123
+}
+                    
+POST /api/v1/users/validate HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "userid": 123
+}
+
+                
+Ответ:
+
+http
+7
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"valid": true
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"valid": true
+}
+
+Запрос данных пользователя
+Запрос:
+
+http
+
+ 
+POST /api/v1/users HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "userid": 123
+}
+                    
+POST /api/v1/users HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "userid": 123
+}
+
+                
+Ответ:
+
+http
+9
+10
+11
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "U001",
+"userid": 123,
+"name": "Дмитрий",
+"phone": "+7-812-509-65-00",
+"email": "example@example.com"
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "U001",
+"userid": 123,
+"name": "Дмитрий",
+"phone": "+7-812-509-65-00",
+"email": "example@example.com"
+}
+
+Обновление статуса заказа
+Запрос:
+
+http
+
+9
+ 
+PATCH /api/v1/orders/update HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "uid": "O001",
+  "orderstate": "shipped"
+}
+                    
+PATCH /api/v1/orders/update HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "uid": "O001",
+  "orderstate": "shipped"
+}
+
+                
+Ответ:
+
+http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "O001",
+"orderstate": "shipped"
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "O001",
+"orderstate": "shipped"
+}
+
+Изменение данных пользователя
+Запрос:
+
+http
+
+9
+ 
+PUT /api/v1/users/123 HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "name": "Дмитрий",
+  "email": "new.email@example.com"
+}
+                    
+PUT /api/v1/users/123 HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "name": "Дмитрий",
+  "email": "new.email@example.com"
+}
+
+                
+Ответ:
+
+http
+9
+10
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "U001",
+"userid": 123,
+"name": "Дмитрий",
+"email": "new.email@example.com"
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "U001",
+"userid": 123,
+"name": "Дмитрий",
+"email": "new.email@example.com"
+}
+
+Оплата заказа
+Запрос:
+
+http
+
+9
+10
+ 
+POST /api/v1/checkout/payment HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "orderid": "O001",
+  "amount": 75999.0,
+  "paymentmethod": "online"
+}
+                    
+POST /api/v1/checkout/payment HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "orderid": "O001",
+  "amount": 75999.0,
+  "paymentmethod": "online"
+}
+
+                
+Ответ:
+
+http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"status": "paid",
+"orderid": "O001"
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"status": "paid",
+"orderid": "O001"
+}
+
+Подтверждение оплаты
+Запрос:
+
+http
+
+9
+ 
+POST /api/v1/payments HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "orderid": "O001",
+  "paymentid": "P001"
+}
+                    
+POST /api/v1/payments HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "orderid": "O001",
+  "paymentid": "P001"
+}
+
+                
+Ответ:
+
+http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"status": "confirmed",
+"paymentid": "P001"
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"status": "confirmed",
+"paymentid": "P001"
+}
+
+Обновление корзины
+Запрос:
 
 ```
-@startuml
+ 
+PATCH /api/v1/cart/update HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "uid": "C001",
+  "items": [
+    {
+      "uid": "CI001",
+      "quantity": 3
+    }
+  ]
+}
+                    
+PATCH /api/v1/cart/update HTTP/1.1
+Host: example.com
+Content-Type: application/json
+
+{
+  "uid": "C001",
+  "items": [
+    {
+      "uid": "CI001",
+      "quantity": 3
+    }
+  ]
+}
+
+                
+Ответ:
+
+http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "C001",
+"total": 227997.0
+}
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+"uid": "C001",
+"total": 227997.0
 
 
-
-
-actor "Пользователь" as User #Application
-note over User  : Кафку и редис убрать, т.к. это ШАБЛОН, надо проще
-participant "User GUI" as userGui #Business
-participant "Сервис управления пользователями" as userService #Business
-database "База данных пользователей" as userDBService
-participant "Сервис управления контентом (CMS)" as cmsService #Business
-
-note over cmsService : В него встроен фин. модуль
-
-database "База данных заказов" as orderDBService
-database "База данных товаров" as productDBService
-
-participant "Сервис логистики и Доставка" as logisticsService #Business
-note over logisticsService : БД Логистики убрать, достаточно бд заказов
-
-group UC1 Просмотр товаров
-    User -> userGui : GET /products
-    activate userGui
-    userGui -> cmsService  : GET /api/products
-    activate cmsService 
-    cmsService  -> productDBService : GET /products
-    activate productDBService
-    productDBService -> cmsService  : 200 OK (список товаров)
-    deactivate productDBService
-    cmsService  -> userGui : 200 OK (список товаров)
-    deactivate cmsService 
-end
-
-group UC2.1 Добавление товара в корзину
-    autonumber 1
-    User -> userGui : POST /cart/add
-    userGui -> cmsService : POST /api/cart/add
-    activate cmsService
-    cmsService -> cmsService  : Кэширование информации о корзине
-    cmsService -> cmsService : SEND /cart/update
-    deactivate cmsService
-    User -> userGui : GET /cart
-    activate userGui
-end
-
-group UC2.2 Действия с параметрами списка товаров
-    alt Варианты действий с параметрами списка товаров
-        User -> userGui : GET /cart
-        userGui -> cmsService  : GET /api/cart
-    else
-        User -> userGui : PATCH /cart/update
-        userGui -> cmsService : PATCH /api/cart/update
-        cmsService -> cmsService : SEND /cart/update
-    else
-        User -> userGui : DELETE /cart/remove
-        userGui -> cmsService : DELETE /api/cart/remove
-        cmsService -> cmsService : SEND /cart/remove
-    else
-        User -> userGui : POST /cart/select-all
-        userGui -> cmsService : POST /api/cart/select-all
-        cmsService -> cmsService : SEND /cart/select-all
-    end
-end
-
-group UC2 Заказ товара
-    User -> userGui : GET /cart/total
-    User -> userGui : POST /order
-    userGui -> cmsService : rpc(New order)
-    cmsService -> userService : записать заказ в историю
-    cmsService -> orderDBService : CREATE /order
-    cmsService -> cmsService : SEND /order/create
-end
-
-group UC2.3 Ввод и проверка данных клиента
-    User -> userGui : POST /order/validate
-    userGui -> userService : POST /api/user/validate
-    userService -> userDBService : GET /user
-end
-
-group UC2.4 Оплата заказа
-    User -> userGui : POST /order/pay
-    userGui -> cmsService : POST /api/payment
-    cmsService -> userGui : 200 OK (подтверждение оплаты)
-    userGui -> User : Подтверждение оформления заказа
-end
-
-group UC2.5 Доставка
-    deactivate userGui
-    userGui -> logisticsService : POST /order/dispatch
-    logisticsService -> orderDBService : UPDATE /order/status
-    logisticsService -> cmsService : SEND /order/dispatch
-end
-
-autonumber stop
-logisticsService -X User : GET /order/receive
-deactivate logisticsService
-
-@enduml
-```
-
-# ПРЕДЫДУЩЕЕ
-__________________
-
-Список компонентов, задействованных в создании решения.
-
-* Service Frontend
-* Service Backend
-* db Database
-
-### Комп диаграмма
-
-5.1.	Схема
- = Компоненты + DFD с RPS на стрелках + Легенда
-https://plantuml.com/ru/component-diagram
-
-образцы
-
-https://real-world-plantuml.com/?type=component
-
-https://www.google.com/search?q=plantuml+component+examples&sca_esv=976475d81eac0872&ei=JEgRZ-SAIsm4wPAPkrf_SA&ved=0ahUKEwjkor-Y95WJAxVJHBAIHZLbHwkQ4dUDCA8&uact=5&oq=plantuml+component+examples&gs_lp=Egxnd3Mtd2l6LXNlcnAiG3BsYW50dW1sIGNvbXBvbmVudCBleGFtcGxlczIGEAAYFhgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogRI-w5Q2AFYrw1wAngBkAEAmAFvoAG2AaoBAzEuMbgBA8gBAPgBAZgCBKACvwHCAgoQABiwAxjWBBhHmAMAiAYBkAYIkgcDMy4xoAfSBw&sclient=gws-wiz-serp
-
-Прототип
-![изображение](https://github.com/user-attachments/assets/62315e95-c4d8-4e63-9fc1-a063fb48949d)
 
 
 ### Шаблон списка
@@ -233,125 +809,6 @@ https://www.google.com/search?q=plantuml+component+examples&sca_esv=976475d81eac
 
 </details>
 
-
-## Описание компонентов
-
-### Шаблон
-
-
-#### Подробное описание
-
-Сервис создан так то нужен для такого то такой то стек делала команда Х подразделения У
-
-Мок ссылка на стр базы знаний
-
-#### Зависимости
-
-мМб не нужно это все
-
-| Внешние Зависимости	 | Имя сервиса |
-|:-----------|:-----------|
-| Потребитель	 | Потребитель	 |
-| Хранение данных	| PostgreSQL (тип БД) |
-
-
-#### Компонент использует вызовы
-
-##### Вызов - 1 
-
-для такого то метод такой то, версия апи такая то
-
-##### Вызов - 2 
-
-для такого то метод такой то, версия апи такая то
-описаны в сценарии
-
-##### Вызов - 3 
-
-для такого то метод такой то, версия апи такая то
-
-##### Вызов - 4 
-
-для такого то метод такой то, версия апи такая то
-
-#### Компонент использует Таблицы БД
-
-* Таблица 1 - набор данных для A
-  Ссылка на справочник БД
-* Таблица 2 - набор данных для B
-  Ссылка на справочник БД
-
----
-
-### Примеры по шаблону
-
-
-#### Компонент Backend
-
-Для бека
-
-##### Подробное описание
-
-Мок ссылка на стр базы знаний
-
-##### Зависимости
-
-| Внешние Зависимости	 | Имя сервиса |
-|:-----------|:-----------|
-| Потребитель	 | Потребитель	 |
-| Хранение данных	| PostgreSQL (тип БД) |
-
-##### Компонент использует вызовы
-
-
-##### Вызов - 1 
-
-для такого то метод такой то, версия апи такая то
-
-POST/system/api/v1/apps/dataproc/inputdata/ 
-v1
-Тут сценарий https://github.com/NonameX11/TestPetDocumentationProject/blob/main/Feature%20Template/4%20-%20%D0%A1%D1%86%D0%B5%D0%BD%D0%B0%D1%80%D0%B8%D0%B8.md
-
-##### Вызов - 2 
-для такого то метод такой то, версия апи такая то
-описаны в сценарии
-
-##### Вызов - 3 
-для такого то метод такой то, версия апи такая то
-
-##### Вызов - 4 
-
-для такого то метод такой то, версия апи такая то
-
-#### Компонент использует Таблицы БД
-
-* Таблица 1 - набор данных для A
-  Ссылка на справочник БД
-* Таблица 2 - набор данных для B
-  Ссылка на справочник БД
-_______
-# API
-  
-## Пример описания вызова - Вызов 2 - Отправка введенных данных
-
-== Что такое REST API: ==
-
-> Описание https://github.com/NonameX11/TestPetDocumentationProject/blob/main/Feature%20Template/4.2%20-%20REST%20API.md
-
-### Вызов и Endpoint url 
-
-POST/system/api/v1/apps/dataproc/inputdata/{dataset}
-
- == НУЖНО попытаться добавить сваггер ==
- 
-> Описание добавления https://github.com/peter-evans/swagger-github-pages
-
-### Описание и назначение вызова
-
-
-| Имя | Назначение | Тип вызова | Метод | url |
-| ------------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Отправка данных в обработку | Отправка введенных пользователем данных с frontend формы на backend. <br>Для валидации и сохранения для последующей обработке согласно бизнес логике | REST API | POST  | /system/api/v1/apps/dataproc/inputdata/ |
 
 ### Запрос Вызова
 
