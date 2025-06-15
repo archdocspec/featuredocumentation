@@ -1,10 +1,12 @@
-# Swagger Yaml preparation
+# Как добавить API в Swagger на GitHub
+_____
+
 ## Инструкции
 
-https://editor.swagger.io/ - здесь тестим
-https://starkovden.github.io/swagger-ui-tutorial.html
-https://starkovden.github.io/integrating-swagger-with-docs.html
-https://github.com/peter-evans/swagger-github-pages
+* https://editor.swagger.io/ - здесь тестим
+* https://starkovden.github.io/swagger-ui-tutorial.html
+* https://starkovden.github.io/integrating-swagger-with-docs.html
+* https://github.com/peter-evans/swagger-github-pages
 
 <details>
   <summary>инструкция от ИИ в гугле</summary>
@@ -37,6 +39,8 @@ https://github.com/peter-evans/swagger-github-pages
 Убедитесь, что ваш файл спецификации OpenAPI соответствует спецификации для правильной работы Swagger UI. 
 </details>
 
+_____
+  
 ## Спецификация
 ```
 openapi: 3.0.0
