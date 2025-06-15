@@ -2,6 +2,7 @@
 Добавление товара в корзину
 
 #### Запрос
+
 <details>
   <summary><br>РАЗВЕРНУТЬ</br></summary>summary>
 
@@ -14,7 +15,8 @@ Content-Type: application/json
   "quantity": 1
 }
 ```
-</details>                
+</details>
+
 #### Ответ
 
 ``` 
