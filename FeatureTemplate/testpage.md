@@ -1,10 +1,12 @@
+## ОПИСАНИЕ МЕТОДОВ API
+
 ### POST /api/v1/cart/add
 Добавление товара в корзину
 
 #### Запрос
 
 <details>
-  <summary><br>РАЗВЕРНУТЬ</br></summary>summary>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 
 ```
 POST /api/v1/cart/add HTTP/1.1
@@ -19,6 +21,8 @@ Content-Type: application/json
 
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ``` 
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -34,12 +38,15 @@ Content-Type: application/json
   "total": 75999.0
 }
 ```
-                
+</details>
+  
 ### POST /api/v1/cart/create
 Создание корзины
 
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```                
 POST /api/v1/cart/create HTTP/1.1
 Host: example.com
@@ -48,9 +55,12 @@ Content-Type: application/json
   "userid": 123
 }
 ```
-               
+</details>
+
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -60,19 +70,26 @@ Content-Type: application/json
   "total": 0.0
 }
 ```
+</details>
                 
-### Просмотр корзины
+### GET /api/v1/cart/view
+Просмотр корзины
 
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 GET /api/v1/cart/view HTTP/1.1
 Host: example.com
 Accept: application/json
 ```
-                
+</details>
+
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -87,11 +104,16 @@ Content-Type: application/json
   ],
   "total": 75999.0
 }
-```               
-### Изменение количества товаров
+```
+</details>
+   
+### PATCH /api/v1/cart/items
+Изменение количества товаров
 
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 PATCH /api/v1/cart/items HTTP/1.1
 Host: example.com
@@ -101,9 +123,12 @@ Content-Type: application/json
   "quantity": 2
 }
 ```
-                  
+</details>
+                   
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -119,11 +144,14 @@ Content-Type: application/json
   "total": 151998.0
 }
 ```
-                
+</details>
+                 
 ### Удаление товара
 
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 DELETE /api/v1/cart/items HTTP/1.1
 Host: example.com
@@ -133,17 +161,23 @@ Content-Type: application/json
   "uid": "CI001"
 }
 ```
-                
+</details>
+                 
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 204 No Content
 ```
-          
+</details>
+           
 ### Создание заказа из корзины
 
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 POST /api/v1/orders/create HTTP/1.1
 Host: example.com
@@ -158,9 +192,12 @@ Content-Type: application/json
   "adress": "321"
 }                    
 ```
-    
-### Ответ
+</details>
+     
+#### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -179,12 +216,15 @@ Content-Type: application/json
   "products": ["m1125"]
 }
 ```
-                
+</details>
+                 
 ### POST /api/v1/checkout/validate
 Ввод и проверка данных клиента
 
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 POST /api/v1/checkout/validate HTTP/1.1
 Host: example.com
@@ -195,9 +235,12 @@ Content-Type: application/json
   "email": "example@example.com"
 }
 ```
-               
+</details>
+                
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -205,11 +248,15 @@ Content-Type: application/json
   "valid": true
 }
 ```
-        
+</details>
+         
 ### POST /api/v1/users/validate
 Проверка данных пользователя
 
 #### Запрос
+
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 
 ```
 POST /api/v1/users/validate HTTP/1.1
@@ -223,6 +270,8 @@ Content-Type: application/json
                 
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -230,13 +279,15 @@ Content-Type: application/json
   "valid": true
 }
 ```
-                
+</details>
+                 
 ### POST /api/v1/users
 Запрос данных пользователя
 
-
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 POST /api/v1/users HTTP/1.1
 Host: example.com
@@ -246,9 +297,12 @@ Content-Type: application/json
   "userid": 123
 }
 ```                    
-                
+</details>
+                 
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -261,12 +315,15 @@ Content-Type: application/json
   "email": "example@example.com"
 }
 ```
-               
+</details>
+                
 ### PATCH /api/v1/orders/update
 Обновление статуса заказа
 
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 PATCH /api/v1/orders/update HTTP/1.1
 Host: example.com
@@ -276,9 +333,12 @@ Content-Type: application/json
   "orderstate": "shipped"
 }
 ```
-             
+</details>
+              
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -287,12 +347,15 @@ Content-Type: application/json
   "orderstate": "shipped"
 }
 ```
-                
+</details>
+                 
 ### PUT /api/v1/users/userid
 Изменение данных пользователя
 
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 PUT /api/v1/users/123 HTTP/1.1
 Host: example.com
@@ -302,9 +365,12 @@ Content-Type: application/json
   "email": "new.email@example.com"
 }
 ```
-                
+</details>
+                 
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -316,12 +382,15 @@ Content-Type: application/json
   "email": "new.email@example.com"
 }
 ```
-                
+</details>
+                 
 ### POST /api/v1/checkout/payment
 Оплата заказа
 
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 POST /api/v1/checkout/payment HTTP/1.1
 Host: example.com
@@ -332,9 +401,12 @@ Content-Type: application/json
   "paymentmethod": "online"
 }
 ```
-                
+</details>
+                 
 ### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -343,12 +415,15 @@ Content-Type: application/json
   "orderid": "O001"
 }
 ```
-                
+</details>
+                 
 ### POST /api/v1/payments
 Подтверждение оплаты
 
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 POST /api/v1/payments HTTP/1.1
 Host: example.com
@@ -357,9 +432,13 @@ Content-Type: application/json
   "orderid": "O001",
   "paymentid": "P001"
 }
-```               
+```
+</details>
+             
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -369,12 +448,15 @@ Content-Type: application/json
   "paymentid": "P001"
 }
 ```
-                
+</details>
+                 
 ### PATCH /api/v1/cart/update
 Обновление корзины
 
 #### Запрос
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 PATCH /api/v1/cart/update HTTP/1.1
 Host: example.com
@@ -389,9 +471,12 @@ Content-Type: application/json
   ]
 }
 ```
-              
+</details>
+        
 #### Ответ
 
+<details>
+  <summary><br>РАЗВЕРНУТЬ ОПИСАНИЕ</br></summary>summary>
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -401,4 +486,5 @@ Content-Type: application/json
   "total": 227997.0
 }
 ```
-
+</details>
+ 
