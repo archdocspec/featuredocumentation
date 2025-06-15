@@ -38,29 +38,6 @@ Content-Type: application/json
                 
 ### POST /api/v1/cart/create
 Создание корзины
-|Запрос|Ответ|
-|------|-----|
-|```                
-POST /api/v1/cart/create HTTP/1.1
-Host: example.com
-Content-Type: application/json
-
-{
-  "userid": 123
-}
-```|```
-HTTP/1.1 201 Created
-Content-Type: application/json
-
-{
-  "uid": "C001",
-  "items": [],
-  "total": 0.0
-}
-
-```|
-
-
 #### Запрос:
 
 ```                
