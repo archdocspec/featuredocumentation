@@ -34,7 +34,7 @@ class productparameters {
 
 class cart {
     uid : varchar : "C001"
-    items : array : [{cartitem}]
+    items :  : [{cartitem}]
     total : numeric : 279978.0
     updated: timestamp : 1749999076
 }
@@ -59,7 +59,7 @@ class order {
     contactphone : string : user.phone
     email : string : user.email
     adress : string : address.adressid
-    products: array : [{product.productid}]
+    products:  : [{product.productid}]
 }
 
 class user {
@@ -68,7 +68,7 @@ class user {
     name : varchar : "Дмитрий"
     phone : string : "+7-812-509-65-00"
     email : string : "example@example.com"
-    address : array :  [{adressid}]
+    address :  :  [{adressid}]
     creationdate : timestamp : 1749999076
     updated : timestamp : 1749999076
 }
@@ -96,134 +96,97 @@ user "1" -- "0..*" address : Имеет >
 
 ## Описание таблиц БД
 
-Таблица: `product`
-| Поле | Тип данных | Размерность | Пример значения | Primary Key |
+### Таблица: `product`
+Данные товаров (продуктов) магазина
 
-|---------------|------------|-------------|--------------------------------------------|-------------|
+| Поле | Тип данных | Размерность | Пример значения |
+|---------------|------------|-------------|--------------------------------------------|
+| uid* | varchar | 10 | “P001” |
+| productid | varchar | 10 | “m1125” |
+| name | varchar | 255 | “Смартфон Apple iPhone 13 128GB” |
+| price | numeric | 10,2 | 75999.00 |
+| price | array | нет | [{productparameters}] |
+| creationdate | timestamp | - | 1749999076 |
+| updated | timestamp | - | 1749999076 |
 
-| uid | varchar | 10 | “P001” | Да |
+### Таблица: `productparameters`
+Хранение параметров продукта
 
-| productid | varchar | 10 | “m1125” | Нет |
+| Поле | Тип данных | Размерность | Пример значения |
+|---------------|------------|-------------|--------------------------------------------|
+| uid* | varchar | 10 | “A001” |
+| productid | varchar | 10 | “m1125” |
+| screenSize | string | 50 | “6.1”/2532x1170" |
+| cores | int | - | 6 |
+| power | string | 20 | “20 Вт” |
+| ram | string | 10 | “6 ГБ” |
+| rom | string | 10 | “128 ГБ” |
+| mainCamera | string | 10 | “64/2” |
+| updated | timestamp | - | 1749999076 |
 
-| name | varchar | 255 | “Смартфон Apple iPhone 13 128GB” | Нет |
+### Таблица: `cart`
+Хранение параметров корзины
+| Поле | Тип данных | Размерность | Пример значения |
+|---------------|------------|-------------|--------------------------------------------|
+| uid* | varchar | 10 | “C001” |
+| items | array | нет | [{cartitem}]|
+| total | numeric | 10,2 | 279978.00 |
+| updated | timestamp | - | 1749999076 |
 
-| price | numeric | 10,2 | 75999.00 | Нет |
+### Таблица: `cartitem`
 
-| creationdate | timestamp | - | 1749999076 | Нет |
+| Поле | Тип данных | Размерность | Пример значения |
+|---------------|------------|-------------|--------------------------------------------|
+| uid* | varchar | 10 | “CI001” |
+| cartuid | varchar | 10 | “C001” |
+| productid | varchar | 10 | “m1125” |
+| quantity | int | - | 1 |
+| updated | timestamp | - | 1749999076 |
 
-| updated | timestamp | - | 1749999076 | Нет |
+### Таблица: `order`
+Данные заказов
 
-Таблица: `productparameters`
-| Поле | Тип данных | Размерность | Пример значения | Primary Key |
+| Поле | Тип данных | Размерность | Пример значения |
+|---------------|------------|-------------|--------------------------------------------|
+| uid* | varchar | 10 | “O001” |
+| userid | int | - | 123 |
+| creationdate | timestamp | - | 1749999076 |
+| updated | timestamp | - | 1749999076 |
+| orderstate | string | 20 | “delivered” |
+| totalprice | numeric | 10,2 | 279978.00 |
+| paymentmethod | string | 20 | “online” |
+| deliverymethod | string | 20 | “delivery” |
+| contactname | varchar | 50 | “Дмитрий” |
+| contactphone | string | 20 | “+7-812-509-65-00” |
+| email | string | 50 | “example@example.com” |
+| adressid | string | 10 | “321” |
+| products | array | - | [{product.productid}] |
 
-|---------------|------------|-------------|--------------------------------------------|-------------|
+### Таблица: `user`
+Данные пользователей
 
-| uid | varchar | 10 | “A001” | Да |
+| Поле | Тип данных | Размерность | Пример значения |
+|---------------|------------|-------------|--------------------------------------------|
+| uid* | varchar | 10 | “U001” |
+| userid | int | - | 123 |
+| name | varchar | 50 | “Дмитрий” |
+| phone | string | 20 | “+7-812-509-65-00” |
+| email | string | 50 | “example@example.com” |
+| address | array | -  | [{adressid}] |
+| creationdate | timestamp | - | 1749999076 |
+| updated | timestamp | - | 1749999076 |
 
-| productid | varchar | 10 | “m1125” | Нет |
+### Таблица: `address`
+Данные пользовательских адресов
 
-| screenSize | string | 50 | “6.1”/2532x1170" | Нет |
+| Поле | Тип данных | Размерность | Пример значения |
+|---------------|------------|-------------|--------------------------------------------|
+| uid* | varchar | 10 | “A001” |
+| adressid | string | 10 | “321” |
+| street | string | 255 | “г. Санкт-Петербург, Невский пр, 21” |
+| creationdate | timestamp | - | 1749999076 |
 
-| cores | int | - | 6 | Нет |
-
-| power | string | 20 | “20 Вт” | Нет |
-
-| ram | string | 10 | “6 ГБ” | Нет |
-
-| rom | string | 10 | “128 ГБ” | Нет |
-
-| mainCamera | string | 10 | “64/2” | Нет |
-
-| updated | timestamp | - | 1749999076 | Нет |
-
-Таблица: `cart`
-| Поле | Тип данных | Размерность | Пример значения | Primary Key |
-
-|---------------|------------|-------------|--------------------------------------------|-------------|
-
-| uid | varchar | 10 | “C001” | Да |
-
-| total | numeric | 10,2 | 279978.00 | Нет |
-
-| updated | timestamp | - | 1749999076 | Нет |
-
-Таблица: `cartitem`
-| Поле | Тип данных | Размерность | Пример значения | Primary Key |
-
-|---------------|------------|-------------|--------------------------------------------|-------------|
-
-| uid | varchar | 10 | “CI001” | Да |
-
-| cartuid | varchar | 10 | “C001” | Нет |
-
-| productid | varchar | 10 | “m1125” | Нет |
-
-| quantity | int | - | 1 | Нет |
-
-| updated | timestamp | - | 1749999076 | Нет |
-
-Таблица: `order`
-| Поле | Тип данных | Размерность | Пример значения | Primary Key |
-
-|---------------|------------|-------------|--------------------------------------------|-------------|
-
-| uid | varchar | 10 | “O001” | Да |
-
-| userid | int | - | 123 | Нет |
-
-| creationdate | timestamp | - | 1749999076 | Нет |
-
-| updated | timestamp | - | 1749999076 | Нет |
-
-| orderstate | string | 20 | “delivered” | Нет |
-
-| totalprice | numeric | 10,2 | 279978.00 | Нет |
-
-| paymentmethod | string | 20 | “online” | Нет |
-
-| deliverymethod | string | 20 | “delivery” | Нет |
-
-| contactname | varchar | 50 | “Дмитрий” | Нет |
-
-| contactphone | string | 20 | “+7-812-509-65-00” | Нет |
-
-| email | string | 50 | “example@example.com” | Нет |
-
-| adressid | string | 10 | “321” | Нет |
-
-Таблица: `user`
-| Поле | Тип данных | Размерность | Пример значения | Primary Key |
-
-|---------------|------------|-------------|--------------------------------------------|-------------|
-
-| uid | varchar | 10 | “U001” | Да |
-
-| userid | int | - | 123 | Нет |
-
-| name | varchar | 50 | “Дмитрий” | Нет |
-
-| phone | string | 20 | “+7-812-509-65-00” | Нет |
-
-| email | string | 50 | “example@example.com” | Нет |
-
-| creationdate | timestamp | - | 1749999076 | Нет |
-
-| updated | timestamp | - | 1749999076 | Нет |
-
-Таблица: `address`
-| Поле | Тип данных | Размерность | Пример значения | Primary Key |
-
-|---------------|------------|-------------|--------------------------------------------|-------------|
-
-| uid | varchar | 10 | “A001” | Да |
-
-| adressid | string | 10 | “321” | Нет |
-
-| street | string | 255 | “г. Санкт-Петербург, Невский пр, 21” | Нет |
-
-| creationdate | timestamp | - | 1749999076 | Нет |
-
-Связи между таблицами
+### Связи между таблицами
 `product` (1) – (0…*) `productparameters`
 `cart` (1) – (0…*) `cartitem`
 `cartitem` (1) – (1) `product`
