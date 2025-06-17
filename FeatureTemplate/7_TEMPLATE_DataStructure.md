@@ -1,13 +1,25 @@
 # ШАБЛОН ОПИСАНИЯ СТРУКТУРЫ БД В РАМКАХ СЦЕНАРИЯ И РЕШЕНИЯ
 
-## БД
+>[!TIP]
+>Этот раздел предназначен для описания сущностей данных, их структуры и связей в рамках спроектированного [в предыдущем разделе](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/5_TEMPLATE_Scenario_INTEGRATION.md) интеграционного сценария.
 
-### UML Class Diagram
+## Диаграмма Классов базы данных Решения
 
-![ClassDiag](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Database/s1classv2.png)
+>[!TIP]
+>Для описания структуры данных часто нужна выгрузка таблиц БД, показывающая их содержимое.
+>
+>Если выгрузку сделать невозможно ИЛИ структура данных не существует и только планируется к созданию, то можно описать данные при помощи [UML-диаграммы классов](https://ru.wikipedia.org/wiki/%D0%94%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0_%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%BE%D0%B2)
+
+>**Шаблон Диаграммы классов**
+
+![ClassDiagramExample](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Database/classexmpl.png)
+
+>**Образец Диаграммы классов для описания сущностей решения**
+
+![ClassDiagramExample](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Database/s1classv2.png)
 
 <details>
-  <summary>PlantUML Code</summary>
+  <summary>PlantUML Код для рендера образца Диаграммы классов</summary>
   
 ```
 @startuml
@@ -94,7 +106,19 @@ user "1" -- "0..*" address : Имеет >
 
 </details>
 
-## Описание таблиц БД
+____
+
+## Описание структур данных
+>[!TIP]
+>Далее рекомендуется детализировать описание таблиц БД в формате, представленном ниже.
+
+>**Шаблон таблицы для структур данных в таблицах БД**
+
+| Поле | Тип данных | Размерность | Пример значения | Описание |
+|------|------------|-------------|-----------------|-----------|
+| *Имя поля* | *Тип хранимых данных в поле* | *Допустимая размерность поля* | *Пример значения поля* | *Текстовое описание назначения поля* |
+
+>**Образцы заполнения таблиц структур данных**
 
 ### Таблица: `product`
 Данные товаров (продуктов) магазина
