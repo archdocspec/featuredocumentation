@@ -36,6 +36,8 @@ ____
 
 [Ссылка на макет в Figma](https://www.figma.com/design/8OWFho9dk1ojDUpLJgITvi/%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8--Community-?m=auto&t=RroNeUdqsDccd7B4-6 "Ссылка на макет")
 
+____
+
 ## Диаграмма вариантов использования (Use Case)
 
 >[!TIP]
@@ -69,11 +71,12 @@ ____
 
 ![UC ALL](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/UC/ucv1-UC%20ALL.drawiov1.png)
 
+____
+
 ## Список вариантов использования
 
 >[!TIP]
 >После работы с макетом и диаграммой рекомендуется обобщить полученную информацию, составив список в виде таблицы Use Case.
-
 
 > **Шаблон таблицы списка вариантов использования (Use Case)**
 
@@ -88,6 +91,8 @@ ____
 >
 >Содержит 2 основных Use Case, несколько связанных с ними включением дочерних Use Case и скриншоты соответвующих областей макета.
 
+**Вариант использования 1**
+
 | № UC | Имя UC | Описание UC | UC на макете|
 |------|--------|-------------|-------------|
 | UC1 | Просмотр товаров | Пользователь может просматривать каталог товаров, включая смартфоны.| ![Макет](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/%D0%B4%D0%B5%D1%81%D0%BA%D1%82%D0%BE%D0%BF%20%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3%20%D1%81%20%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0%D0%BC%D0%B8%20%D0%B2%D0%B8%D0%B4%20%D0%BF%D0%BB%D0%B8%D1%82%D0%BA%D0%B0.png) |
@@ -96,9 +101,7 @@ ____
 | UC1.3 | Сравнение цен | Пользователь может сравнить текущую цену товара с предыдущей ценой, чтобы увидеть скидку. | ![Макет](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/discount.png) |
 | UC1.4 | Просмотр карточки товара | Пользователь может получить подробную информацию о характеристиках товара. | ![Макет](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/%D0%B4%D0%B5%D1%81%D0%BA%D1%82%D0%BE%D0%BF%20%D0%BA%D0%B0%D1%80%D1%82%D0%BE%D1%87%D0%BA%D0%B0%20%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D0%B0.png) |
 
-**2**
-
-![Макет]()
+**Вариант использования 2**
 
 | № сценария | Имя сценария | Описание сценариев | pic |
 |------------|-------------------------------|-------------------------------|-------------------------------|
@@ -107,16 +110,12 @@ ____
 | UC2.2 | Действия\nс параметрами\nсписка товаров | Пользователь может увидеть, доступен ли товар в наличии или нет. Система проверяет наличие товара в базе перед разрешением оформления заказа на этот товар. |![Макет](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/%D0%BA%D0%BE%D1%80%D0%B7%D0%B8%D0%BD%D0%B0%20%D0%B5%D1%81%D0%BB%D0%B8%20%D0%B2%D1%8B%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20%D0%B2%D1%81%D1%91.png) |
 | UC2.3 | Ввод и проверка данных клиента | Пользователь может ввести свои данные для совершения заказа | ![Макет](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/%D0%BA%D1%83%D1%80%D1%8C%D0%B5%D1%80%D0%BE%D0%BC%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5.png) |
 | UC2.4 | Оплата заказа | Пользователь выбрать нужный тип оплаты и произвести её для завершения заказа | ![Макет](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/%D0%BA%D1%83%D1%80%D1%8C%D0%B5%D1%80%D0%BE%D0%BC%20%D1%81%D1%82%D0%B0%D1%80%D1%8B%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D0%B5.png) |
-| UC2.5 | Доставка | Пользователь получает подтверждение оплаченного заказа и уведомление о передаче в доставку. Служба доставки доставляет товар пользователю | ![Макет](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%20%D1%83%D1%81%D0%BF%D0%B5%D1%85%D0%B0%20%D0%BF%D1%80%D0%B8%20%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B5%20%D0%BA%D1%83%D1%80%D1%8C%D0%B5%D1%80%D0%BE%D0%BC.png)
- |
+| UC2.5 | Доставка | Пользователь получает подтверждение оплаченного заказа и уведомление о передаче в доставку. Служба доставки доставляет товар пользователю | ![Макет](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%20%D1%83%D1%81%D0%BF%D0%B5%D1%85%D0%B0%20%D0%BF%D1%80%D0%B8%20%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B5%20%D0%BA%D1%83%D1%80%D1%8C%D0%B5%D1%80%D0%BE%D0%BC.png)|
 
 >[!CAUTiON]
 > UC 2.2 ПРоверка наличия товаров ПЕРЕИМЕНОВАН В Действия\nс параметрами\nсписка товаров. Т.к проверка наличия = это скорее бэкенд процедура, которая часть всех соотв. UC
 
-СОСТАВЛЯЮТ СЦЕНАРИЙ Покупки
-
-
-**3**
+**Вариант использования 3**
 
 | № сценария | Имя сценария | Описание сценариев | pic |
 |------------|-------------------------------|-------------------------------|-------------------------------|
