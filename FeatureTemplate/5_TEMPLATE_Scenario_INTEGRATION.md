@@ -106,9 +106,35 @@ ________
 
 >**Шаблон диаграммы последовательности с описанием интеграционного сценария на основе REST API**
 
-![UMLSequence_Diagram]()
+![UMLSequence_Diagram](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/S1/restseqexample.png)
+
+<details>
+    <summary><br>PlantUML код для рендера этого шаблона диаграммы</br></summary>
+
+```
+
+@startuml
+testinganuragactor Users #Yellow
+activate frontend #LightBlue
+activate APIGateway #LightCoral
+activate Lambda #LightSalmonUsers -> frontend : interact
+frontend -> APIGateway : GET /user
+APIGateway-> Lambda : getUsers()
+Lambda -> DynamoDB : fetch user from\n users table
+DynamoDB -[#Gray]-> Lambda: Return
+APIGateway <-[#Gray]- Lambda : return
+APIGateway -[#Gray]-> frontend : return the response
+frontend -[#Gray]-> Users : Response
+@enduml
+
+```
+
+</details>
 
 >**Образец диаграммы последовательности с описанием интеграционного сценария на основе REST API**
+
+>[!TIP]
+>Эта интеграция спроектирована на основе всех предыдущих образцов материалов
 
 ![UMLSequence_Diagram](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/API/s1apiv5.png)
 
