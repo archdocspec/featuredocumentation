@@ -128,9 +128,9 @@ frontend -[#Gray]-> Users : Response
 @enduml
 
 ```
+</details>
 
 >**Цветовой код для обозначения компонентов**
-
 
 https://plantuml.com/ru/color
 
