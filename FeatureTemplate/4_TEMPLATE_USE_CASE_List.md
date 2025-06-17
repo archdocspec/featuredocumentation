@@ -15,35 +15,29 @@
 
 ____
 
-# Макеты
+## Макет интерфейса для маппинга Use Case
 
 ### Общий макет 
 
->**Шаблон**
+>[!TIP]
+>Если в решении предполагается задействование функциональностей UI, UX, Frontend и т.п., то рекомендуется добавить здесь макет зоны доработки.
+>В достаточном для описания Use Case виде.
+
+>**Пример размещения макета**
+
+![Full](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/UC/layout%20example.png)
+
+
+>**Образец  размещения макета**
 
 >[!TIP]
->взять сценарий покупки с предусловиями - уже все зарегано, залогинено и т.п.
-указать все на юз кейсе
-
-
-
-
-
->**Образец заполнения**
+> Здесь представлен четкий и понятный макет интернет-магазина, который наглядно демонстрирует области доработки и позволяет выводить Use Case исходя из пользовательских сценариев.
 
 ![Full](https://github.com/archdocspec/featuredocumentation/blob/main/FeatureTemplate/Assets/Layout/All_scens/full_layout.png)
 
-https://www.figma.com/design/8OWFho9dk1ojDUpLJgITvi/%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8--Community-?m=auto&t=RroNeUdqsDccd7B4-6
+[Full](https://www.figma.com/design/8OWFho9dk1ojDUpLJgITvi/%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82-%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD-%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D0%BA%D0%B8--Community-?m=auto&t=RroNeUdqsDccd7B4-6 "Ссылка на макет")
 
-## Общий USE CASE Сценариев
 
-1
-N
-Все остальные
-
-## Список сценариев
-
-Подраздел, где будут содержаться общие данные по всем сценариям
 
 ### Use Case Diagram
 (вариантов использования)
