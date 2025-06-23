@@ -16,7 +16,6 @@
 
 ![OSI](https://www.infosectrain.com/wp-content/uploads/2024/04/OSI-Model-Layers-1.jpg)
 
-![OSI](https://media.fs.com/images/community/wp-content/uploads/2017/11/seven-layers-of-OSI-model.png)
 
 ## BGP (Border Gateway Protocol)
 
